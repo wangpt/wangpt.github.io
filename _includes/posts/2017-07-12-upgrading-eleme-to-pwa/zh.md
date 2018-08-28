@@ -12,7 +12,7 @@
 
 然而饿了么，与很多国内的电商网站一样，青睐多页面应用模型（MPA，Multi-page App）所能带来的一些好处，也因此在一年多将移动站从基于 Angular.js 的单页应用重构为目前的多页应用模型。团队最看重的优点莫过于页面与页面之间的隔离与解耦，这使得我们可以将每个页面当做一个独立的“微服务”来看待，这些服务可以被独立迭代，独立提供给各种第三方的入口嵌入，甚至被不同的团队独立维护。而整个网站则只是各种服务的集合而非一个巨大的整体。
 
- 
+
 与此同时，我们仍然依赖 [Vue.js](http://vuejs.org/) 作为 JavaScript 框架。Vue 除了是 React/Angular 这种“重型武器”的竞争对手外，其轻量与高性能的优点使得它同样可以作为传统多页应用开发中流行的 “jQuery/Zepto/Kissy + 模板引擎” 技术栈的完美替代。Vue 提供的组件系统、声明式与响应式编程更是提升了代码组织、共享、数据流控制、渲染等各个环节的开发效率。[Vue 还是一个渐进式框架]((https://www.youtube.com/watch?v=pBBSp_iIiVM))，如果网站的复杂度继续提升，我们可以按需、增量地引入 Vuex 或 Vue-Router 这些模块。万一哪天又要改回单页呢？（谁知道呢……）
 
 2017 年，PWA 已经成为 web 应用新的风潮。我们决定试试，以我们现有的“Vue + 多页”的架构，能在升级 PWA 的道路上走多远，达到怎样的效果。
@@ -175,33 +175,3 @@ HTML 文件中有标签并不意味着这些标签就能立刻被绘制到屏幕
 Web 是一个极其多样化的平台。从静态的博客，到电商网站，再到桌面级的生产力软件，它们全都是 Web 这个大家庭的第一公民。而我们组织 web 应用的方式，也同样只会更多而不会更少：多页、单页、Universal JavaScript 应用、WebGL、以及可以预见的 Web Assembly。不同的技术之间没有贵贱，但是适用场景的差距确是客观存在的。
 
 [Jake](https://twitter.com/jaffathecake) 曾在 [Chrome Dev Summit 2016](https://youtu.be/J2dOTKBoTL4?list=PLNYkxOF6rcIBTs2KPy1E6tIYaWoFcG3uj) 上说过 "PWA !== SPA"。可是尽管我们已经用上了一系列最新的技术（PRPL、Service Worker、App Shell……），我们仍然因为多页应用模型本身的缺陷有着难以逾越的一些障碍。多页应用在未来可能会有“bfcache API”、Navigation Transition 等新的规范以缩小跟 SPA 的距离，不过我们也必须承认，时至今日，多页应用的局限性也是非常明显的。
-
-
-### 而 PWA 终将带领 web 应用进入新的时代
-
-即使我们的多页应用在升级 PWA 的路上不如单页的那些来得那么闪亮，但是 PWA 背后的想法与技术却实实在在的帮助我们在 web 平台上提供了更好的用户体验。
-
-PWA 作为[下一代 Web 应用模型](https://zhuanlan.zhihu.com/p/25167289)，其尝试解决的是 web 平台本身的根本性问题：对网络与浏览器 UI 的硬依赖。因此，任何 web 应用都可以从中获益，这与你是多页还是单页、面向桌面还是移动端、是用 React 还是 Vue 无关。或许，它还终将改变用户对移动 web 的期待。现如今，谁还觉得桌面端的 web 只是个看文档的地方呢？
-
-还是那句老话：让我们的用户，也像我们这般热爱 web 吧。
-
----
-
-最后，感谢饿了么的王亦斯、任光辉、题叶，Google 的 Michael Yeung、DevRel 团队， UC 浏览器团队，腾讯 X5 浏览器团队在这次项目中的合作。感谢尤雨溪、陈蒙迪和 Jake Archibald 在写作过程中给予我的帮助。
-
-
-
-[1]: https://twitter.com/vuejs/status/834087199008239619
-[2]: https://developers.google.com/web/progressive-web-apps/
-[3]: https://blog.twitter.com/2017/how-we-built-twitter-lite
-[4]: https://medium.com/progressive-web-apps/building-flipkart-lite-a-progressive-web-app-2c211e641883
-[5]: https://medium.com/engineering-housing/progressing-mobile-web-fac3efb8b454
-[6]: https://shop.polymer-project.org/
-[7]: https://developers.google.com/web/fundamentals/performance/prpl-pattern/
-[8]: https://calendar.perfplanet.com/2013/big-bad-preloader/
-[9]: https://w3c.github.io/ServiceWorker/v1/
-[10]: https://webpack.github.io/
-[11]: https://medium.com/@Huxpro/how-does-sw-precache-works-2d99c3d3c725
-[12]: https://developers.google.com/web/updates/2015/11/app-shell
-[13]: https://googlechrome.github.io/sw-toolbox/
-
