@@ -1,6 +1,6 @@
 # Site settings
-title: Wangpt Blog
-SEOTitle: 王朋涛的博客 | Hux Blog
+title: wpt Blog
+SEOTitle: 王朋涛的博客 | wpt Blog
 header-img: img/home-bg.jpg
 email: wptwork@sina.com
 description: "王朋涛的个人博客"
@@ -13,7 +13,7 @@ future: true
 
 # SNS settings
 RSS: false
-# weibo_username:     huxpro
+ weibo_username:     王朋涛GG
 # zhihu_username:     huxpro
 github_username:    wangpt
 # twitter_username:   huxpro
