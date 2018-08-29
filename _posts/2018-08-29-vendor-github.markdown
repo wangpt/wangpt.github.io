@@ -24,12 +24,12 @@ tags:
 
 - [应用路由](#应用路由)
 - [实景增强](#实景增强)
-- [Bridging](#bridging)
-- [Cache](#cache)
-- [Charts](#charts)
-- [Code Quality](#code-quality)
-- [Linter](#linter)
-- [Color](#color)
+- [混合](#混合)
+- [缓存](#缓存)
+- [图表](#图表)
+- [代码质量](#代码质量)
+- [代码分析](#代码分析)
+- [颜色](#颜色)
 
 ## 内容
 
@@ -46,51 +46,50 @@ tags:
 * [DeepLinkKit](https://github.com/button/DeepLinkKit) - 出色的路由匹配.
 * [ARKit-CoreLocation](https://github.com/ProjectDent/ARKit-CoreLocation) -根据GPS数据的规模确定AR的高精度.
 
-### Bridging
+### 混合
 
-*Sharing code between Objective-C and Swift, iOS and macOS, Javascript and Objective-C.*
+*在Objective-C和Swift，iOS和macOS，Javascript和Objective-C之间共享代码.*
 
-* [JSPatch](https://github.com/bang590/JSPatch) - JSPatch bridge Objective-C and Javascript using the Objective-C runtime. You can call any Objective-C class and method in JavaScript by just including a small engine. JSPatch is generally use for hotfix iOS App.
+* [JSPatch](https://github.com/bang590/JSPatch) - 使用Objective-C运行时的JSPatch桥接Objective-C和Javascript。您可以通过包含一个小引擎来调用JavaScript中的任何Objective-C类和方法。JSPatch通常用于修补程序iOS App.
 * [WebViewJavascriptBridge](https://github.com/marcuswestin/WebViewJavascriptBridge) - An iOS/macOS bridge for sending messages between Obj-C and JavaScript in UIWebViews/WebViews
 
 
-### Cache
+### 缓存
 
-* [YYCache](https://github.com/ibireme/YYCache) - High performance cache framework for iOS.
+* [YYCache](https://github.com/ibireme/YYCache) - 适用于iOS的高性能缓存框架.
 
-### Charts
+### 图表
 
-* [Charts](https://github.com/danielgindi/Charts) - A powerful chart / graph framework, the iOS equivalent to [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart).
-* [PNChart](https://github.com/kevinzhow/PNChart) - A simple and beautiful chart lib used in Piner and CoinsMan for iOS
-* [Scrollable-GraphView](https://github.com/philackm/ScrollableGraphView) - An adaptive scrollable graph view for iOS to visualise simple discrete datasets. Written in Swift.
-* [JBChartView](https://github.com/Jawbone/JBChartView) - iOS-based charting library for both line and bar graphs.
+* [Charts](https://github.com/danielgindi/Charts) -  iOS功能强大的图表/图表框架，相当于[MPAndroidChart](https://github.com/PhilJay/MPAndroidChart).
+* [PNChart](https://github.com/kevinzhow/PNChart) - iOS中使用的简单而美观的图表库
+* [Scrollable-GraphView](https://github.com/philackm/ScrollableGraphView) - OS的自适应可滚动图形视图，可视化简单的离散数据集。用Swift写的.
+* [JBChartView](https://github.com/Jawbone/JBChartView) - 基于iOS的线图和条形图图表库.
 
-### Code Quality
+### 代码质量
 
  *Quality always matters. Code checkers, memory vigilants, syntastic sugars and more.*
  
- * [MLeaksFinder](https://github.com/Tencent/MLeaksFinder) - Find memory leaks in your iOS app at develop time.
-* [FBMemoryProfiler](https://github.com/facebook/FBMemoryProfiler) - iOS tool that helps with profiling iOS Memory usage.
-* [FBRetainCycleDetector](https://github.com/facebook/FBRetainCycleDetector) - iOS library to help detecting retain cycles in runtime.
+ * [MLeaksFinder](https://github.com/Tencent/MLeaksFinder) - 查找在开发时iOS应用中的内存泄漏.
+* [FBMemoryProfiler](https://github.com/facebook/FBMemoryProfiler) - 帮助分析iOS内存使用情况的iOS工具.
+* [FBRetainCycleDetector](https://github.com/facebook/FBRetainCycleDetector) - 帮助检测运行时保留周期的iOS库.
  
 
-### Linter
+### 代码分析
 
-*Static code analyzers to enforce style and conventions.*
+*静态代码分析器*
 
-* [Swiftlint](https://github.com/realm/SwiftLint) - A tool to enforce Swift style and conventions.
-* [OCLint](https://github.com/oclint/oclint) - Static code analysis tool for improving quality and reducing defects.
+* [Swiftlint](https://github.com/realm/SwiftLint) - 强制执行Swift风格和约定的工具.
+* [OCLint](https://github.com/oclint/oclint) - 用于提高质量和减少缺陷的静态代码分析工具.
+
+
+## 颜色
+*十六进制颜色扩展，主题，颜色选择器和其他令人敬畏的颜色工具.*
+
+* [Chameleon](https://github.com/ViccAlexander/Chameleon) - 适用于iOS（ObjC和Swift）的轻量级但功能强大的平面颜色框架.
+* [Colours](https://github.com/bennyguitar/Colours) - 漂亮的预定义颜色和一组颜色方法，使您的iOS / macOS开发生活更轻松.
+* [DKNightVersion](https://github.com/Draveness/DKNightVersion) - 管理色彩，整合夜晚/多个主题
 
 ---
-
-## Color
-*Hex color extensions, theming, color pickers and other awesome color tools.*
-
-* [Chameleon](https://github.com/ViccAlexander/Chameleon) - A lightweight, yet powerful, flat color framework for iOS (ObjC & Swift).
-* [Colours](https://github.com/bennyguitar/Colours) - A beautiful set of predefined colors and a set of color methods to make your iOS/macOS development life easier.
-* [DKNightVersion](https://github.com/Draveness/DKNightVersion) - Manage Colors, Integrate Night/Multiple Themes
-
-
 ## 后记
 
 此文档会不断更新
