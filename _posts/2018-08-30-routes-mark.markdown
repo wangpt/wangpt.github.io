@@ -20,6 +20,7 @@ tags:
 ### 概述
 常用的组件化工具
 [JLRoutes](https://github.com/joeldev/JLRoutes)
+[DeepLinkKit](https://github.com/button/DeepLinkKit)
 [MGJRouter](https://github.com/meili/MGJRouter)
 
 ---
