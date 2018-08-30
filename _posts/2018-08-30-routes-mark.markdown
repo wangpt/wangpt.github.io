@@ -14,8 +14,8 @@ tags:
 > “欢迎关注和收藏 ”
 
 
-## 组件化
-*用于拆分复杂的业务逻辑，加快代码的编译时间，也是为了更高的复用性和可维护性等目的。*
+## 简介
+*组件化用于拆分复杂的业务逻辑，加快代码的编译时间，也是为了更高的复用性和可维护性等目的。*
 
 ### 常用的组件化工具
 [JLRoutes](https://github.com/joeldev/JLRoutes)
@@ -29,12 +29,45 @@ tags:
 
 ---
 
-## 内容
-### 对于JLRoutes进行组件化
-*JLRoutes原理：它是通过url scheme来实现app内部，web到app，app与app之间跳转的第三方库*
+## 示例
+### 利用JLRoutes进行组件化
+*JLRoutes原理：它是通过url scheme来实现app内部，web到app，app与app之间跳转的第三方库，它旨在使用最少的代码轻松处理应用程序中的复杂URL方案*
 
 ## 应用场景
-## 1.APP内部跳转
+### 开始
+*在Info.plist中配置您的URL方案*
+### 要求
+*LRoutes 2.x需要iOS 8.0+或macOS 10.10+*
+### 文档
+[官方API]（http://cocoadocs.org/docsets/JLRoutes/2.0.5/）
+### 入门
+首先在Info.plist中配置您的URL schemes。
+
+``` objc
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+  JLRoutes *routes = [JLRoutes globalRoutes];
+
+  [routes addRoute:@"/user/view/:userID" handler:^BOOL(NSDictionary *parameters) {
+    NSString *userID = parameters[@"userID"]; // defined in the route by specifying ":userID"
+
+    // present UI for viewing user with ID 'userID'
+
+    return YES; // return YES to say we have handled the route
+  }];
+
+  return YES;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options
+{
+  return [JLRoutes routeURL:url];
+}
+
+
+
+```
+
 ``` objc
 // push
 // 路由 /TJPushRoute/:controller
