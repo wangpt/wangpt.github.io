@@ -36,8 +36,7 @@ tags:
 *优雅的URL路由，导航框架，深层链接等*
 * [JLRoutes](https://github.com/joeldev/JLRoutes) - iOS的URL路由库.
 * [DeepLinkKit](https://github.com/button/DeepLinkKit) - 出色的路由匹配.
-* [MGJRouter](https://github.com/meili/MGJRouter)
-- 一个高效/灵活的 iOS URL Route
+* [MGJRouter](https://github.com/meili/MGJRouter) -  高效/灵活的 iOS URL Route
 
 ### 实景增强
 
@@ -61,7 +60,7 @@ tags:
 
 * [Charts](https://github.com/danielgindi/Charts) -  iOS功能强大的图表/图表框架，相当于[MPAndroidChart](https://github.com/PhilJay/MPAndroidChart).
 * [PNChart](https://github.com/kevinzhow/PNChart) - iOS中使用的简单而美观的图表库
-* [Scrollable-GraphView](https://github.com/philackm/ScrollableGraphView) - OS的自适应可滚动图形视图，可视化简单的离散数据集。用Swift写的.
+* [Scrollable-GraphView](https://github.com/philackm/ScrollableGraphView) - 自适应可滚动图形视图，可视化简单的离散数据集。用Swift写的.
 * [JBChartView](https://github.com/Jawbone/JBChartView) - 基于iOS的线图和条形图图表库.
 
 ### 代码质量
