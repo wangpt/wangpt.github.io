@@ -70,28 +70,19 @@ tags:
 2.进行Route注册
 ``` objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [TJTabBarController new];
-    //注册
     [self registerNavgationRouter];
     [self registerSchemaRouter];
     [self registerWildcardsRouter];
     return YES;
 }
-
-
 - (void)registerNavgationRouter
 {
-    //log
     [JLRoutes setVerboseLoggingEnabled:NO];
-    // 1.global  多路径
     JLRoutes.globalRoutes[@"/user/view/:userID"] = ^BOOL(NSDictionary *parameters) {
         NSString *userID = parameters[@"userID"];
         NSLog(@"%@",userID);
         return YES;
     };
-    // 2.complex
     [[JLRoutes globalRoutes] addRoute:@"/:object/:action/:primaryKey" handler:^BOOL(NSDictionary *parameters) {
         NSString *object = parameters[@"object"];
         NSString *action = parameters[@"action"];
@@ -100,25 +91,14 @@ tags:
         return YES;
     }];
 }
-
 - (void)registerSchemaRouter
 {
-
     [[JLRoutes routesForScheme:@"TJRoutesSchemesThing"] addRoute:@"/foo/view/:user" handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
-        NSLog(@"%@",parameters[@"user"]);
         return YES;
     }];
     [[JLRoutes routesForScheme:@"TJRoutesSchemesStuff"] addRoute:@"/foo/view" handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
-        NSLog(@"%@",parameters[@"user"]);
         return YES;
     }];
-/*
-    //当这个scheme找不到该路径时,shouldFallbackToGlobalRoutes决定是否进行全局匹配，true为进行再进行全局搜索
-    [[JLRoutes routesForScheme:@"TJRoutesSchemesThing"] addRoute:@"/foo/view2" handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
-        NSLog(@"%@",parameters[@"user"]);
-        return YES;
-    }];
- */
     [JLRoutes routesForScheme:@"TJRoutesSchemesThing"].shouldFallbackToGlobalRoutes = YES;
     [[JLRoutes globalRoutes] addRoute:@"/foo/view2" handler:^BOOL(NSDictionary *parameters) {
         NSLog(@"TJRoutesSchemesThing");
@@ -126,32 +106,25 @@ tags:
     }];
     
 }
-
 - (void)registerWildcardsRouter{
     [[JLRoutes globalRoutes] addRoute:@"/wildcard/*" handler:^BOOL(NSDictionary *parameters) {
         NSArray *pathComponents = parameters[JLRouteWildcardComponentsKey];
         if (pathComponents.count > 0 && [pathComponents[0] isEqualToString:@"joker"]) {
-            // 返回路线匹配;
-            NSLog(@"%@",parameters[@"user"]);
             return YES;
         }
-        // 返回路线不匹配
         return NO;
     }];
-    
 }
 ```
 ---
 3.实现跳转
 
 ``` objc
-
 - (void)globalExample:(NSString *)path{
     [JLRoutes routeURL:[NSURL URLWithString:path]];
 }
 - (void)schemesExample:(NSString *)path{
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:path]];
-    
 }
 ```
 ---
