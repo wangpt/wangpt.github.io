@@ -44,6 +44,7 @@ tags:
 [官方API](http://cocoadocs.org/docsets/JLRoutes/2.0.5/)
 ### 开始
 [在Info.plist中配置您的URL schemes](https://developer.apple.com/library/archive/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html#//apple_ref/doc/uid/TP40007072-CH6-SW2)
+
 ---
 
 1.进行url拦截
@@ -79,14 +80,12 @@ tags:
     [JLRoutes setVerboseLoggingEnabled:NO];
     JLRoutes.globalRoutes[@"/user/view/:userID"] = ^BOOL(NSDictionary *parameters) {
         NSString *userID = parameters[@"userID"];
-        NSLog(@"%@",userID);
         return YES;
     };
     [[JLRoutes globalRoutes] addRoute:@"/:object/:action/:primaryKey" handler:^BOOL(NSDictionary *parameters) {
         NSString *object = parameters[@"object"];
         NSString *action = parameters[@"action"];
         NSString *primaryKey = parameters[@"primaryKey"];
-        NSLog(@"%@_%@_%@",object,action,primaryKey);
         return YES;
     }];
 }
@@ -100,7 +99,6 @@ tags:
     }];
     [JLRoutes routesForScheme:@"TJRoutesSchemesThing"].shouldFallbackToGlobalRoutes = YES;
     [[JLRoutes globalRoutes] addRoute:@"/foo/view2" handler:^BOOL(NSDictionary *parameters) {
-        NSLog(@"TJRoutesSchemesThing");
         return YES;
     }];
     
