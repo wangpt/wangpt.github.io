@@ -33,8 +33,7 @@ tags:
 
 ---
 
-## 示例
-### 利用JLRoutes进行组件化
+## 利用JLRoutes进行组件化
 *JLRoutes原理：它是通过url scheme来实现app内部，web到app，app与app之间跳转的第三方库，它旨在使用最少的代码轻松处理应用程序中的复杂URL方案*
 
 ## 应用场景
