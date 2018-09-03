@@ -15,9 +15,9 @@ tags:
 
 
 ## 简介
-*组件化用于拆分复杂的业务逻辑，加快代码的编译时间，也是为了更高的复用性和可维护性等目的。*
+*组件化用于拆分复杂的业务逻辑，解决模块之间的相互依赖，加快代码的编译时间，也是为了更高的复用性和可维护性。*
 
-### 常用的组件化工具
+### 常用的工具
 [JLRoutes](https://github.com/joeldev/JLRoutes)
 
 [DeepLinkKit](https://github.com/button/DeepLinkKit)
@@ -36,21 +36,19 @@ tags:
 ## 利用JLRoutes进行组件化
 *JLRoutes原理：它是通过url scheme来实现app内部，web到app，app与app之间跳转的第三方库，它旨在使用最少的代码轻松处理应用程序中的复杂URL方案*
 
-## 应用场景
-### 开始
-*在Info.plist中配置您的URL方案*
-### 要求
+### 说明
 *LRoutes 2.x需要iOS 8.0+或macOS 10.10+*
 ### 文档
 [JLRoutes地址](https://github.com/joeldev/JLRoutes)
+
 [官方API](http://cocoadocs.org/docsets/JLRoutes/2.0.5/)
 ### 开始
 [在Info.plist中配置您的URL schemes](https://developer.apple.com/library/archive/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html#//apple_ref/doc/uid/TP40007072-CH6-SW2)
 ---
 
 1.进行url拦截
-``` objc
 
+``` objc
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
     NSString *str = url.absoluteString;
     NSArray *arr = [str componentsSeparatedByString:@"://"];
@@ -68,6 +66,7 @@ tags:
 ```
 ---
 2.进行Route注册
+
 ``` objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self registerNavgationRouter];
