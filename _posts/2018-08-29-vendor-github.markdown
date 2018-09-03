@@ -36,7 +36,7 @@ tags:
 *优雅的URL路由，导航框架，深层链接等*
 * [JLRoutes](https://github.com/joeldev/JLRoutes) - iOS的URL路由库.
 * [DeepLinkKit](https://github.com/button/DeepLinkKit) - 出色的路由匹配.
-* [MGJRouter](https://github.com/meili/MGJRouter) -  高效/灵活的 iOS URL Route
+* [MGJRouter](https://github.com/meili/MGJRouter) -  高效/灵活的路由库
 
 ### 实景增强
 
@@ -48,8 +48,9 @@ tags:
 
 *在Objective-C和Swift，iOS和macOS，Javascript和Objective-C之间共享代码.*
 
+* [react-native](https://github.com/facebook/react-native) - React Native完美兼容使用Objective-C、Java或是Swift编写的组件。 如果你需要针对应用的某一部分特别优化，中途换用原生代码编写也很容易
 * [JSPatch](https://github.com/bang590/JSPatch) - 使用Objective-C运行时的JSPatch桥接Objective-C和Javascript。您可以通过包含一个小引擎来调用JavaScript中的任何Objective-C类和方法。JSPatch通常用于修补程序iOS App.
-* [WebViewJavascriptBridge](https://github.com/marcuswestin/WebViewJavascriptBridge) - An iOS/macOS bridge for sending messages between Obj-C and JavaScript in UIWebViews/WebViews
+* [WebViewJavascriptBridge](https://github.com/marcuswestin/WebViewJavascriptBridge) - 在UIWebViews / WebViews中在Obj-C和JavaScript之间发送消息的桥接
 
 
 ### 缓存
