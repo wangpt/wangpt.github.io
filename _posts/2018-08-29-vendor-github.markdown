@@ -42,7 +42,7 @@ tags:
 
 *实景增强*
 
-* [ARKit-CoreLocation](https://github.com/ProjectDent/ARKit-CoreLocation) -根据GPS数据的规模确定AR的高精度.
+* [Awesome-ARKit](https://github.com/olucurious/Awesome-ARKit) -ARKit项目和资源的精选列表.
 
 ### 混合
 
