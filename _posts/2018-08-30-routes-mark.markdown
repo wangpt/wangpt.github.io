@@ -17,7 +17,7 @@ tags:
 ## 简介
 *组件化用于拆分复杂的业务逻辑，解决模块之间的相互依赖，加快代码的编译时间，也是为了更高的复用性和可维护性。*
 
-### 常用的工具
+### 常用工具
 [JLRoutes](https://github.com/joeldev/JLRoutes)
 
 [DeepLinkKit](https://github.com/button/DeepLinkKit)
@@ -33,7 +33,7 @@ tags:
 
 ---
 
-## 利用JLRoutes进行组件化
+## 利用JLRoutes实现组件化
 *通过url scheme来实现app内部，web到app，app与app之间跳转的第三方库，它旨在使用最少的代码轻松处理应用程序中的复杂URL方案*
 
 ### 说明
@@ -127,7 +127,7 @@ tags:
 }
 ```
 ---
-### Demo下载地址
+### Demo下载
 [TJRoutes](https://github.com/wangpt/TJRoutes)
 ## 后记
 
