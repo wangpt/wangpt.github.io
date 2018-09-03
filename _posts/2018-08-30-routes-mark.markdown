@@ -19,12 +19,16 @@ tags:
 
 ### 常用的组件化工具
 [JLRoutes](https://github.com/joeldev/JLRoutes)
+
 [DeepLinkKit](https://github.com/button/DeepLinkKit)
+
 [MGJRouter](https://github.com/meili/MGJRouter)
 
 ### 文章描述
 [蘑菇街 App 的组件化之路](https://www.jianshu.com/p/cdf94a963c27)
+
 [蘑菇街 App 的组件化之路·续](https://blog.csdn.net/daiyelang/article/details/51648004)
+
 [滴滴的组件化实践与优化](http://www.infoq.com/cn/articles/xiaojukeji-component-practice-and-optimization)
 
 ---
@@ -41,68 +45,116 @@ tags:
 ### 文档
 [官方API]（http://cocoadocs.org/docsets/JLRoutes/2.0.5/）
 ### 入门
-首先在Info.plist中配置您的URL schemes。
+1.首先在Info.plist中配置您的URL schemes。
+2.进行url拦截
 
 ``` objc
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-  JLRoutes *routes = [JLRoutes globalRoutes];
+//url拦截
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    NSString *str = url.absoluteString;
+    NSArray *arr = [str componentsSeparatedByString:@"://"];
+    if ([[arr.firstObject lowercaseString] isEqualToString:@"tjroutesschemesthing"]) {
+        return [[JLRoutes routesForScheme:@"TJRoutesSchemesThing"]routeURL:url];
+    }else if ([[arr.firstObject lowercaseString] isEqualToString:@"tjroutesschemesstuff"]){
+        return [[JLRoutes routesForScheme:@"TJRoutesSchemesStuff"]routeURL:url];
+    }
+    else{
+        return NO;
+    }
 
-  [routes addRoute:@"/user/view/:userID" handler:^BOOL(NSDictionary *parameters) {
-    NSString *userID = parameters[@"userID"]; // defined in the route by specifying ":userID"
-
-    // present UI for viewing user with ID 'userID'
-
-    return YES; // return YES to say we have handled the route
-  }];
-
-  return YES;
 }
-
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options
-{
-  return [JLRoutes routeURL:url];
-}
-
-
 
 ```
+---
+3.进行Route注册
 
 ``` objc
-// push
-// 路由 /TJPushRoute/:controller
-[[JLRoutes globalRoutes] addRoute:TJPushRoute handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIViewController *currentVc = [self currentViewController];
-        UIViewController *v = [[NSClassFromString(parameters[@"controller"]) alloc] init];
-        [self paramToVc:v param:parameters];
-        [currentVc.navigationController pushViewController:v animated:YES];
-    });
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = [TJTabBarController new];
+    //注册
+    [self registerNavgationRouter];
+    [self registerSchemaRouter];
+    [self registerWildcardsRouter];
     return YES;
-}];
-// present
-[[JLRoutes globalRoutes] addRoute:TJPresentRoute handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIViewController *currentVc = [self currentViewController];
-        UIViewController *v = [[NSClassFromString(parameters[@"controller"]) alloc] init];
-        [self paramToVc:v param:parameters];
-        [currentVc.navigationController presentViewController:v animated:YES completion:nil];
+}
 
-    });
-    return YES;
-}];
-// sb push
-[[JLRoutes globalRoutes] addRoute:TJStoryBoardPushRoute handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
-    UIViewController *currentVc = [self currentViewController];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:parameters[@"sbname"] bundle:nil];
-    UIViewController *v  = [storyboard instantiateViewControllerWithIdentifier:parameters[@"bundleid"]];
-    [self paramToVc:v param:parameters];
-    [currentVc.navigationController pushViewController:v animated:YES];
-    return YES;
-}];
+//普通的跳转路由注册
+- (void)registerNavgationRouter
+{
+    //log
+    [JLRoutes setVerboseLoggingEnabled:NO];
+    // 1.global  多路径
+    JLRoutes.globalRoutes[@"/user/view/:userID"] = ^BOOL(NSDictionary *parameters) {
+        NSString *userID = parameters[@"userID"];
+        NSLog(@"%@",userID);
+        return YES;
+    };
+    // 2.complex
+    [[JLRoutes globalRoutes] addRoute:@"/:object/:action/:primaryKey" handler:^BOOL(NSDictionary *parameters) {
+        NSString *object = parameters[@"object"];
+        NSString *action = parameters[@"action"];
+        NSString *primaryKey = parameters[@"primaryKey"];
+        NSLog(@"%@_%@_%@",object,action,primaryKey);
+        return YES;
+    }];
+}
+//Schema 匹配
+// routesForScheme 的优先级最高 (注册固定的schemes，则不通知全局的监测)
+- (void)registerSchemaRouter
+{
 
+    [[JLRoutes routesForScheme:@"TJRoutesSchemesThing"] addRoute:@"/foo/view/:user" handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
+        NSLog(@"%@",parameters[@"user"]);
+        return YES;
+    }];
+    [[JLRoutes routesForScheme:@"TJRoutesSchemesStuff"] addRoute:@"/foo/view" handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
+        NSLog(@"%@",parameters[@"user"]);
+        return YES;
+    }];
+/*
+    //当这个scheme找不到该路径时,shouldFallbackToGlobalRoutes决定是否进行全局匹配，true为进行再进行全局搜索
+    [[JLRoutes routesForScheme:@"TJRoutesSchemesThing"] addRoute:@"/foo/view2" handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
+        NSLog(@"%@",parameters[@"user"]);
+        return YES;
+    }];
+ */
+    [JLRoutes routesForScheme:@"TJRoutesSchemesThing"].shouldFallbackToGlobalRoutes = YES;
+    [[JLRoutes globalRoutes] addRoute:@"/foo/view2" handler:^BOOL(NSDictionary *parameters) {
+        NSLog(@"TJRoutesSchemesThing");
+        return YES;
+    }];
+    
+}
+//wildcards 匹配
+- (void)registerWildcardsRouter{
+    [[JLRoutes globalRoutes] addRoute:@"/wildcard/*" handler:^BOOL(NSDictionary *parameters) {
+        NSArray *pathComponents = parameters[JLRouteWildcardComponentsKey];
+        if (pathComponents.count > 0 && [pathComponents[0] isEqualToString:@"joker"]) {
+            // 返回路线匹配;
+            NSLog(@"%@",parameters[@"user"]);
+            return YES;
+        }
+        // 返回路线不匹配
+        return NO;
+    }];
+    
+}
 ```
+---
+4.实现跳转
 
+``` objc
+
+- (void)globalExample:(NSString *)path{
+    [JLRoutes routeURL:[NSURL URLWithString:path]];
+}
+- (void)schemesExample:(NSString *)path{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:path]];
+    
+}
+```
 ---
 ### Demo下载地址
 [TJRoutes](https://github.com/wangpt/TJRoutes)
