@@ -45,8 +45,6 @@ tags:
 ### 开始
 [在Info.plist中配置您的URL schemes](https://developer.apple.com/library/archive/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html#//apple_ref/doc/uid/TP40007072-CH6-SW2)
 
----
-
 1.进行url拦截
 
 ``` objc
@@ -61,7 +59,6 @@ tags:
     else{
         return NO;
     }
-
 }
 
 ```
@@ -75,6 +72,7 @@ tags:
     [self registerWildcardsRouter];
     return YES;
 }
+
 - (void)registerNavgationRouter
 {
     [JLRoutes setVerboseLoggingEnabled:NO];
@@ -89,6 +87,7 @@ tags:
         return YES;
     }];
 }
+
 - (void)registerSchemaRouter
 {
     [[JLRoutes routesForScheme:@"TJRoutesSchemesThing"] addRoute:@"/foo/view/:user" handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
@@ -101,8 +100,8 @@ tags:
     [[JLRoutes globalRoutes] addRoute:@"/foo/view2" handler:^BOOL(NSDictionary *parameters) {
         return YES;
     }];
-    
 }
+
 - (void)registerWildcardsRouter{
     [[JLRoutes globalRoutes] addRoute:@"/wildcard/*" handler:^BOOL(NSDictionary *parameters) {
         NSArray *pathComponents = parameters[JLRouteWildcardComponentsKey];
@@ -120,6 +119,7 @@ tags:
 - (void)globalExample:(NSString *)path{
     [JLRoutes routeURL:[NSURL URLWithString:path]];
 }
+
 - (void)schemesExample:(NSString *)path{
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:path]];
 }
