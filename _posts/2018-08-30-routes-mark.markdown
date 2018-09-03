@@ -43,13 +43,15 @@ tags:
 ### 要求
 *LRoutes 2.x需要iOS 8.0+或macOS 10.10+*
 ### 文档
-[官方API]（http://cocoadocs.org/docsets/JLRoutes/2.0.5/）
-### 入门
-1.首先在Info.plist中配置您的URL schemes。
-2.进行url拦截
+[JLRoutes地址](https://github.com/joeldev/JLRoutes)
+[官方API](http://cocoadocs.org/docsets/JLRoutes/2.0.5/)
+### 开始
+[在Info.plist中配置您的URL schemes](https://developer.apple.com/library/archive/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html#//apple_ref/doc/uid/TP40007072-CH6-SW2)
+---
 
+1.进行url拦截
 ``` objc
-//url拦截
+
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
     NSString *str = url.absoluteString;
     NSArray *arr = [str componentsSeparatedByString:@"://"];
@@ -66,8 +68,7 @@ tags:
 
 ```
 ---
-3.进行Route注册
-
+2.进行Route注册
 ``` objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -80,7 +81,7 @@ tags:
     return YES;
 }
 
-//普通的跳转路由注册
+
 - (void)registerNavgationRouter
 {
     //log
@@ -100,8 +101,7 @@ tags:
         return YES;
     }];
 }
-//Schema 匹配
-// routesForScheme 的优先级最高 (注册固定的schemes，则不通知全局的监测)
+
 - (void)registerSchemaRouter
 {
 
@@ -127,7 +127,7 @@ tags:
     }];
     
 }
-//wildcards 匹配
+
 - (void)registerWildcardsRouter{
     [[JLRoutes globalRoutes] addRoute:@"/wildcard/*" handler:^BOOL(NSDictionary *parameters) {
         NSArray *pathComponents = parameters[JLRouteWildcardComponentsKey];
