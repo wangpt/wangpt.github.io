@@ -46,7 +46,7 @@ tags:
 
 ``` objc
      setupWebViewJavascriptBridge(function(bridge) {
-    })
+     })
 ```
 ---
 3.JS给OC提供的API
