@@ -8,6 +8,8 @@ header-img: "img/post-bg-2015.jpg"
 catalog: true
 tags:
     - Hybrid
+    - OC
+
 ---
 
 > “欢迎关注和分享 ”
@@ -23,7 +25,7 @@ tags:
 ### 原理
 *监听decidePolicyForNavigationAction或shouldStartLoadWithRequest方法，判断URL是否是需要bridge的URL，注入JS进行处理*
 ### 开始
-*分别说明JS和OC端使用方式*
+*属于轻量级嵌入，需要JS和OC端分别进行处理*
 ### JS端嵌入方式
 1.这段代码是固定的，必须要放到js中
 
@@ -110,4 +112,4 @@ tags:
 
 ## 后记
 
-此文档会不断更新 
+此文档会不断更新
