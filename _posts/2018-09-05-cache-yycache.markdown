@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "IOS缓存管理之YYCache使用"
+title:      "IOS缓存管理之YYCache"
 subtitle:   " \"Exmple for YYCache\""
 date:       2018-09-05 12:00:00
 author:     "Wangpt"
