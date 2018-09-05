@@ -2,7 +2,7 @@
 layout:     post
 title:      "ReactNative学习笔记"
 subtitle:   " \"Exmple for ReactNative\""
-date:       2018-09-05 12:00:00
+date:       2018-09-04 12:00:00
 author:     "Wangpt"
 header-img: "img/post-bg-2015.jpg"
 catalog: true

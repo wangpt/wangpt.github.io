@@ -54,7 +54,8 @@ tags:
 
 
 ### 缓存
-
+* [HanekeSwift](https://github.com/Haneke/HanekeSwift) - 用Swift编写的轻量级通用缓存
+* [PINCache](https://github.com/pinterest/PINCache) - 适用于iOS和macOS的平台，安全的对象缓存
 * [YYCache](https://github.com/ibireme/YYCache) - 适用于iOS的高性能缓存框架.
 
 ### 图表
