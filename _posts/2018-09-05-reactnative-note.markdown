@@ -7,8 +7,8 @@ author:     "Wangpt"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
 tags:
+    - Notes
     - ReactNative
-    - Note
 
 ---
 
@@ -20,10 +20,13 @@ tags:
 
 ---
 
-## 搭建环境
-*从搭建基本的 React Native 开发环境开始*
-可参考中文网的教程：https://reactnative.cn/docs/getting-started.html
+## 开发环境
+*搭建基本的ReactNative开发环境*
+
+[可参考中文网的教程](https://reactnative.cn/docs/getting-started.html)
+
 ### 知识储备
+
 [ReactNative地址](https://github.com/facebook/react-native)
 
 [ReactNative中文网](https://reactnative.cn/)
@@ -33,8 +36,6 @@ tags:
 [React-Native学习指南](https://github.com/reactnativecn/react-native-guide)
 
 [ECMAScript 6 入门](http://es6.ruanyifeng.com/)
-
-
 
 ## 后记
 
