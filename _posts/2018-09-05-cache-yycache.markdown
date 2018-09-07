@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "IOS缓存管理之YYCache"
-subtitle:   " \"Exmple for YYCache\""
+title:      "IOS缓存管理"
+subtitle:   " \"Exmple for YYCache PINCache\""
 date:       2018-09-05 12:00:00
 author:     "Wangpt"
 header-img: "img/post-bg-2015.jpg"
@@ -24,10 +24,10 @@ tags:
 ## 开发环境
 iOS 6.0+
 
-## 使用
+## 使用YYCache实现
 *通过YYCache缓存自定义对象*
 
-## 1.遵守NSCoding协议
+## 遵守NSCoding协议
 
 
 ``` objc
@@ -42,7 +42,7 @@ iOS 6.0+
 ```
 ---
 
-## 2.对象序列化
+## 对象序列化
 
 ``` objc
 
@@ -61,7 +61,7 @@ iOS 6.0+
 
 ```
 
-## 3.增删改查
+## YYCache增删改查
 
 ``` objc
 
@@ -88,6 +88,42 @@ iOS 6.0+
 
 - (PersonModel *)readPerson{
     YYCache *cache = [YYCache cacheWithName:TJCacheName];
+    PersonModel *model = (PersonModel *)[cache objectForKey:TJCacheKey];
+    return model;
+}
+
+```
+
+---
+
+## 使用PINCache实现
+*前两步等同于YYCache*
+
+## PINCache增删改查
+
+``` objc
+- (void)updataPersonObject:(id<NSCoding>)object{
+    PINCache *cache = [[PINCache sharedCache] initWithName:TJCacheKey];
+    [cache setObject:object forKey:TJCacheKey];
+}
+
+- (void)removePerson{
+    PINCache *cache = [[PINCache sharedCache] initWithName:TJCacheKey];
+    [cache removeObjectForKey:TJCacheKey];
+}
+
+- (void)removeAllObjects{
+    PINCache *cache = [[PINCache sharedCache] initWithName:TJCacheKey];
+    [cache removeAllObjects];
+}
+
++ (BOOL)checkPerson{
+    PINCache *cache = [[PINCache sharedCache] initWithName:TJCacheKey];
+    return [cache containsObjectForKey:TJCacheKey];
+}
+
+- (PersonModel *)readPerson{
+    PINCache *cache = [[PINCache sharedCache] initWithName:TJCacheKey];
     PersonModel *model = (PersonModel *)[cache objectForKey:TJCacheKey];
     return model;
 }
