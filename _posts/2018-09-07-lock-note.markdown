@@ -1,0 +1,25 @@
+---
+layout:     post
+title:      "IOS数据锁"
+subtitle:   " \"Exmple for NSLock\""
+date:       2018-09-07 12:00:00
+author:     "Wangpt"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - iOS
+    - Notes
+    - Lock
+
+---
+
+> “欢迎关注和分享 ”
+
+
+## 简介
+
+---
+
+## 后记
+
+此文档会不断更新
