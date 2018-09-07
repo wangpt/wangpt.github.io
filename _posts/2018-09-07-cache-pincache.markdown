@@ -63,37 +63,6 @@ iOS 6.0+
 
 ## 3.增删改查
 
-``` objc
-
-- (void)updataPersonObject:(id<NSCoding>)object{
-    YYCache *cache = [YYCache cacheWithName:TJCacheName];
-    cache.memoryCache.shouldRemoveAllObjectsOnMemoryWarning=YES;
-    [cache setObject:object forKey:TJCacheKey];
-}
-
-- (void)removePerson{
-    YYCache *cache = [YYCache cacheWithName:TJCacheName];
-    [cache removeObjectForKey:TJCacheKey];
-}
-
-- (void)removeAllObjects{
-    YYCache *cache = [YYCache cacheWithName:TJCacheName];
-    [cache removeAllObjects];
-}
-
-+ (BOOL)checkPerson{
-    YYCache *cache = [YYCache cacheWithName:TJCacheName];
-    return [cache containsObjectForKey:TJCacheKey];
-}
-
-- (PersonModel *)readPerson{
-    YYCache *cache = [YYCache cacheWithName:TJCacheName];
-    PersonModel *model = (PersonModel *)[cache objectForKey:TJCacheKey];
-    return model;
-}
-
-```
-
 ### Demo下载
 [TJCache](https://github.com/wangpt/TJCache)
 
