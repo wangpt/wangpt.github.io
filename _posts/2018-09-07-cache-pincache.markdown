@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "IOS缓存管理之YYCache"
-subtitle:   " \"Exmple for YYCache\""
-date:       2018-09-05 12:00:00
+title:      "IOS缓存管理之PINCache"
+subtitle:   " \"Exmple for PINCache\""
+date:       2018-09-07 12:00:00
 author:     "Wangpt"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
