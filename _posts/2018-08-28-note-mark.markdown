@@ -1,0 +1,20 @@
+---
+layout:     post
+title:      "我的博客终于开通了，哈哈"
+subtitle:   " \"Hello Word\""
+date:       2018-08-28 12:00:00
+author:     "Wangpt"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - Note
+
+---
+#1.开通目的
+没啥目的，就是想弄个地方整理一下所学而已
+#2.主要工作
+对于一些好的第三方库的整理和学习
+#3.想法和心得
+也不知道能坚持多久，但有目标总是好的
+
+
