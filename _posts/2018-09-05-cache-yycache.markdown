@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "IOS缓存管理"
+title:      "iOS缓存管理"
 subtitle:   " \"Exmple for YYCache PINCache\""
 date:       2018-09-05 12:00:00
 author:     "Wangpt"
@@ -21,10 +21,10 @@ tags:
 
 ---
 
-## 使用YYCache实现
+## YYCache
 *通过YYCache缓存自定义对象*
 
-## 遵守NSCoding协议
+*遵守NSCoding协议*
 
 
 ``` objc
@@ -39,7 +39,7 @@ tags:
 ```
 ---
 
-## 对象序列化
+*对象序列化*
 
 ``` objc
 
@@ -58,7 +58,7 @@ tags:
 
 ```
 
-## YYCache增删改查
+## 增删改查
 
 ``` objc
 
@@ -93,10 +93,10 @@ tags:
 
 ---
 
-## 使用PINCache实现
+## PINCache
 *前两步等同于YYCache*
 
-## PINCache增删改查
+## 增删改查
 *同步方法*
 
 ``` objc

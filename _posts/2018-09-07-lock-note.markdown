@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "IOS数据锁"
+title:      "iOS数据锁"
 subtitle:   " \"Exmple for NSLock\""
 date:       2018-09-07 12:00:00
 author:     "Wangpt"
