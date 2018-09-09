@@ -21,9 +21,6 @@ tags:
 
 ---
 
-## 开发环境
-iOS 6.0+
-
 ## 使用YYCache实现
 *通过YYCache缓存自定义对象*
 
@@ -100,6 +97,7 @@ iOS 6.0+
 *前两步等同于YYCache*
 
 ## PINCache增删改查
+*同步方法*
 
 ``` objc
 - (void)updataPersonObject:(id<NSCoding>)object{
@@ -129,7 +127,35 @@ iOS 6.0+
 }
 
 ```
+*异步方法*
 
+``` objc
+- (void)updataAsynPersonObject:(id<NSCoding>)object withBlock:(void (^)(void))block{
+    YYCache *cache = [YYCache cacheWithName:TJCacheName];
+    [cache setObject:object forKey:TJCacheKey withBlock:block];
+}
+
+- (void)removeAsynPersonWithBlock:(void (^)(NSString *key))block{
+    YYCache *cache = [YYCache cacheWithName:TJCacheName];
+    [cache removeObjectForKey:TJCacheKey withBlock:block];
+}
+
+- (void)removeAllObjectsWithBlock:(void(^)(void))block{
+    YYCache *cache = [YYCache cacheWithName:TJCacheName];
+    [cache removeAllObjectsWithBlock:block];
+}
+
++ (void)checkAsynPersonWithBlock:(void (^)(NSString *key, BOOL contains))block{
+    YYCache *cache = [YYCache cacheWithName:TJCacheName];
+    [cache containsObjectForKey:TJCacheKey withBlock:block];
+}
+
+- (void)readAsynPersonWithBlock:(void (^)(NSString *key, id<NSCoding> object))block{
+    YYCache *cache = [YYCache cacheWithName:TJCacheName];
+    [cache objectForKey:TJCacheKey withBlock:block];
+}
+
+```
 ### Demo下载
 [TJCache](https://github.com/wangpt/TJCache)
 
