@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "iOS缓存管理"
+title:      "iOS图表"
 subtitle:   " \"Exmple for Charts\""
 date:       2018-09-10 12:00:00
 author:     "Wangpt"
