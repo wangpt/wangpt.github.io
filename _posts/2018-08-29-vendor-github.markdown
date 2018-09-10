@@ -63,7 +63,6 @@ tags:
 * [Charts](https://github.com/danielgindi/Charts) -  iOS功能强大的图表/图表框架，相当于[MPAndroidChart](https://github.com/PhilJay/MPAndroidChart).
 * [PNChart](https://github.com/kevinzhow/PNChart) - iOS中使用的简单而美观的图表库
 * [Scrollable-GraphView](https://github.com/philackm/ScrollableGraphView) - 自适应可滚动图形视图，可视化简单的离散数据集。用Swift写的.
-* [JBChartView](https://github.com/Jawbone/JBChartView) - 基于iOS的线图和条形图图表库.
 
 ### 代码质量
 
