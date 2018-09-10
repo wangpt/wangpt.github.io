@@ -15,17 +15,22 @@ tags:
 > “Charts的使用 ”
 
 
-## 简介
+简介
+=============
 *iOS功能强大的图表/图表框架*
 
 ---
 
-## Charts
+Charts的使用
+=============
 
+Demo下载
+=============
 
-### Demo下载
 [TJCache](https://github.com/wangpt/TJCache)
 
-## 后记
+
+后记
+=============
 
 此文档会不断更新
