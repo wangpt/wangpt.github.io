@@ -12,7 +12,7 @@ tags:
 
 ---
 
-> “欢迎关注和分享 ”
+> “WebViewJavascriptBridge的使用方法 ”
 
 
 ## 简介
