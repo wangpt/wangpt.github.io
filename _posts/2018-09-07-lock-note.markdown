@@ -17,8 +17,226 @@ tags:
 
 
 ## 简介
-
+*当一个线程访问数据时，而其他数据不能进行访问，保证线程安全（执行多线程，对于共享资源访问时保证互斥的要求）*
 ---
+## 文章
+[不再安全的 OSSpinLock](https://blog.ibireme.com/2016/01/16/spinlock_is_unsafe_in_ios/)
+
+[iOS开发中的11种锁以及性能对比](https://www.jianshu.com/p/b1edc6b0937a)
+
+[iOS 十种线程锁](https://www.jianshu.com/p/7e9dd2cb78a8)
+
+[iOS多线程篇-NSThread-synchronized(互斥锁)](https://www.jianshu.com/p/5cf73b57796b)
+
+## 分类
+
+*1.自旋锁：是用于多线程同步的一种锁，线程反复检查锁变量是否可用（一直进行do while忙等）*
+
+*2.互斥锁：是一种用于多线程编程中，防止两条线程同时对同一公共资源（比如全局变量）进行读写的机制*
+
+*3.条件锁：当进程的某些资源要求不满足时就进入休眠，也就是锁住了。当资源被分配到了，条件锁打开，进程继续运行*
+## 介绍
+*11种常见锁介绍*
+
+
+### 自旋锁
+*OSSpinLock*
+
+```
+- (void)osspinlock:(int)count{
+    NSTimeInterval begin, end;
+    OSSpinLock lock = OS_SPINLOCK_INIT;
+    begin = CACurrentMediaTime();
+    for (int i = 0; i < count; i++) {
+        OSSpinLockLock(&lock);
+        OSSpinLockUnlock(&lock);
+    }
+    end = CACurrentMediaTime();
+    printf("OSSpinLock:               %8.2f ms\n", (end - begin) * 1000);
+}
+
+```
+*os_unfair_lock（iOS10之后替代OSSPinLock的锁，解决了优先级反转的问题）*
+
+```
+- (void)os_unfair_lock:(int)count{
+    if (@available(iOS 10.0, *)) {
+        NSTimeInterval begin, end;
+        os_unfair_lock_t unfairLock;
+        unfairLock = &(OS_UNFAIR_LOCK_INIT);
+        begin = CACurrentMediaTime();
+        for (int i = 0; i < count; i++) {
+            os_unfair_lock_lock(unfairLock);
+            os_unfair_lock_unlock(unfairLock);
+        }
+        end = CACurrentMediaTime();
+        printf("os_unfair_lock:           %8.2f ms\n", (end - begin) * 1000);
+    }
+}
+
+```
+### 信号量
+*dispatch_semaphore*
+
+```
+- (void)dispatch_semaphore:(int)count{
+    NSTimeInterval begin, end;
+    dispatch_semaphore_t lock =  dispatch_semaphore_create(1);
+    begin = CACurrentMediaTime();
+    for (int i = 0; i < count; i++) {
+        dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);
+        dispatch_semaphore_signal(lock);
+    }
+    end = CACurrentMediaTime();
+    printf("dispatch_semaphore:       %8.2f ms\n", (end - begin) * 1000);
+}
+```
+
+### 互斥锁
+*NSLock*
+
+* NSLock是最常使用的互斥锁，遵循NSLocking协议，通过lock和unlock来完成锁定和解锁*
+
+```
+- (void)nslock:(int)count{
+    NSTimeInterval begin, end;
+    NSLock *lock = [NSLock new];
+    begin = CACurrentMediaTime();
+    for (int i = 0; i < count; i++) {
+        [lock lock];
+        [lock unlock];
+    }
+    end = CACurrentMediaTime();
+    printf("NSLock:                   %8.2f ms\n", (end - begin) * 1000);
+    
+}
+```
+
+*pthread_mutex*
+
+```
+- (void)pthread_mutex:(int)count{
+    NSTimeInterval begin, end;
+    pthread_mutex_t lock;
+    pthread_mutex_init(&lock, NULL);
+    begin = CACurrentMediaTime();
+    for (int i = 0; i < count; i++) {
+        pthread_mutex_lock(&lock);
+        pthread_mutex_unlock(&lock);
+    }
+    end = CACurrentMediaTime();
+    pthread_mutex_destroy(&lock);
+    printf("pthread_mutex:            %8.2f ms\n", (end - begin) * 1000);
+    
+}
+```
+
+*synchronized*
+
+```
+- (void)synchronized:(int)count{
+    NSTimeInterval begin, end;
+    NSObject *lock = [NSObject new];
+    begin = CACurrentMediaTime();
+    for (int i = 0; i < count; i++) {
+        @synchronized(lock) {}
+    }
+    end = CACurrentMediaTime();
+    printf("@synchronized:            %8.2f ms\n", (end - begin) * 1000);
+    
+}
+```
+### 条件锁
+*NSCondition*
+
+```
+- (void)_NSCondition:(int)count{
+    NSTimeInterval begin, end;
+    NSCondition *lock = [NSCondition new];
+    begin = CACurrentMediaTime();
+    for (int i = 0; i < count; i++) {
+        [lock lock];
+        [lock unlock];
+    }
+    end = CACurrentMediaTime();
+    printf("NSCondition:              %8.2f ms\n", (end - begin) * 1000);
+}
+```
+*NSConditionLock*
+
+```
+- (void)_NSConditionLock:(int)count{
+    NSTimeInterval begin, end;
+    NSConditionLock *lock = [[NSConditionLock alloc] initWithCondition:1];
+    begin = CACurrentMediaTime();
+    for (int i = 0; i < count; i++) {
+        [lock lock];
+        [lock unlock];
+    }
+    end = CACurrentMediaTime();
+    printf("NSConditionLock:          %8.2f ms\n", (end - begin) * 1000);
+    
+}
+```
+### 递归锁
+*NSRecursiveLock*
+
+```
+- (void)_NSRecursiveLock:(int)count{
+    NSTimeInterval begin, end;
+    NSRecursiveLock *lock = [NSRecursiveLock new];
+    begin = CACurrentMediaTime();
+    for (int i = 0; i < count; i++) {
+        [lock lock];
+        [lock unlock];
+    }
+    end = CACurrentMediaTime();
+    printf("NSRecursiveLock:          %8.2f ms\n", (end - begin) * 1000);
+}
+```
+*pthread_mutex_recursive*
+
+```
+- (void)pthread_mutex_recursive:(int)count{
+    NSTimeInterval begin, end;
+    pthread_mutex_t lock;
+    pthread_mutexattr_t attr;
+    pthread_mutexattr_init(&attr);
+    pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
+    pthread_mutex_init(&lock, &attr);
+    pthread_mutexattr_destroy(&attr);
+    begin = CACurrentMediaTime();
+    for (int i = 0; i < count; i++) {
+        pthread_mutex_lock(&lock);
+        pthread_mutex_unlock(&lock);
+    }
+    end = CACurrentMediaTime();
+    pthread_mutex_destroy(&lock);
+    printf("pthread_mutex(recursive): %8.2f ms\n", (end - begin) * 1000);
+
+}
+```
+
+### 读写锁
+*pthread_rwlock*
+
+```
+- (void)pthread_rwlock:(int)count{
+    NSTimeInterval begin, end;
+    pthread_rwlock_t rwlock;
+    pthread_rwlock_init(&rwlock,NULL);
+    begin = CACurrentMediaTime();
+    for (int i = 0; i < count; i++) {
+        pthread_rwlock_rdlock(&rwlock);
+        pthread_rwlock_unlock(&rwlock);
+    }
+    end = CACurrentMediaTime();
+    printf("pthread_rwlock:           %8.2f ms\n", (end - begin) * 1000);
+}
+```
+
+## Demo
+[TJLock](https://github.com/wangpt/TJLock)
 
 ## 后记
 
