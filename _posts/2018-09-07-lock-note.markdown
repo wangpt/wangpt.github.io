@@ -43,7 +43,7 @@ tags:
 
 *6.读写锁：对共享资源的访问者划分成读者和写者，读者只对共享资源进行读访问，写者则需要对共享资源进行写操作*
 
-## 3.介绍
+## 4.介绍
 *各种常见锁介绍和性能评测，可以看出要是没有优先级反转的问题的话，osspinlock为最优，其次就是dispatch_semaphore，dispatch_semaphore和os_unfair_lock差距很小，然后就是pthread_mutex。*
 
 ### 自旋锁
