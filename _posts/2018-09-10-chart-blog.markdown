@@ -24,6 +24,13 @@ tags:
 Charts的使用
 =============
 
+。。。 折线图
+![折线图]({{ site.url }}/assets/screenshot.jpg)
+
+![]
+
+
+
 Demo下载
 =============
 
