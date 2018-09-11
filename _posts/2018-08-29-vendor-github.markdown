@@ -11,7 +11,7 @@ tags:
     - vendor
 ---
 
-> “欢迎关注和收藏 ”
+> “这里会涉及一些介绍和总结 ”
 
 
 ## 关于
@@ -66,7 +66,7 @@ tags:
 
 ### 代码质量
 
- *Quality always matters. Code checkers, memory vigilants, syntastic sugars and more.*
+ *质量总是很重要。代码检查器 内存管理检测*
 
  * [MLeaksFinder](https://github.com/Tencent/MLeaksFinder) - 查找在开发时iOS应用中的内存泄漏.
 * [FBMemoryProfiler](https://github.com/facebook/FBMemoryProfiler) - 帮助分析iOS内存使用情况的iOS工具.
