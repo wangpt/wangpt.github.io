@@ -21,21 +21,43 @@ tags:
 
 ---
 
-Charts的使用
+##Charts框架的使用
 
-
-> 折线图
-
+###### 绘制折线图
+*最终效果*
 ![折线图](https://raw.githubusercontent.com/wangpt/TJCharts/master/Sources/1.png)
+*对象初始化*
 
-> 柱状图
+```objc
+    //初始化对象
+    CGFloat chartW =[self getScreenSize].width - 20;
+    CGFloat chartH =[self getScreenSize].height - 300;
+    self.chartView = ({
+        LineChartView *chartView = [[LineChartView alloc] init];
+        [self.view addSubview:chartView];
+        [chartView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(chartW, chartH));
+            make.center.mas_equalTo(self.view);
+        }];
+        chartView;
+    });
+    
+```
+
+
+
+
+
+
+
+### 柱状图
 ![柱状图](https://raw.githubusercontent.com/wangpt/TJCharts/master/Sources/2.png)
 
-> 饼状图
+### 饼状图
 
 ![饼状图](https://raw.githubusercontent.com/wangpt/TJCharts/master/Sources/3.png)
 
-> 雷达图
+### 雷达图
 
 ![雷达图](https://raw.githubusercontent.com/wangpt/TJCharts/master/Sources/4.png)
 
