@@ -29,7 +29,8 @@ tags:
 *对象初始化*
 
 ```objc
-_chartView = ({//1.初始化对象
+    _chartView = ({//1.初始化对象
+        
         LineChartView *lineChart = [[LineChartView alloc] init];
         [self.view addSubview:lineChart];
         [lineChart mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -37,6 +38,7 @@ _chartView = ({//1.初始化对象
             make.center.mas_equalTo(self.view);
         }];
         {//2.设置交互样式
+            
             lineChart.noDataText = @"暂无数据";//没有数据时的文字提示
             lineChart.rightAxis.enabled = NO;//不绘制右边轴
             lineChart.drawGridBackgroundEnabled = NO;//是否绘制网格背景的标志
@@ -50,6 +52,7 @@ _chartView = ({//1.初始化对象
             lineChart.dragDecelerationEnabled = YES;//拖拽饼状图后是否有惯性效果
         }
         {//3.设置x轴的样式
+            
             ChartXAxis *xAxis = lineChart.xAxis;
             xAxis.drawGridLinesEnabled = NO;//不绘制网格线为NO 绘制为YES
             xAxis.axisLineWidth = 1.0/[UIScreen mainScreen].scale;//设置X轴线宽
@@ -61,6 +64,7 @@ _chartView = ({//1.初始化对象
             xAxis.spaceMax = 0.5;//设置坐标轴额外的最大空间
         }
         {//4.设置y轴的样式
+            
             ChartYAxis *leftAxis = lineChart.leftAxis;
             leftAxis.drawGridLinesEnabled = NO;//不绘制网格线
             leftAxis.axisLineWidth = 1.0/[UIScreen mainScreen].scale;//Y轴线宽
@@ -77,6 +81,7 @@ _chartView = ({//1.初始化对象
             leftAxis.labelFont = [UIFont systemFontOfSize:10.0f];//文字字体
         }
         {//5.图例样式
+            
             ChartLegend *l = lineChart.legend;
             l.enabled = YES;//显示图例说明
             l.horizontalAlignment = ChartLegendHorizontalAlignmentCenter;//水平方向
@@ -93,7 +98,7 @@ _chartView = ({//1.初始化对象
             l.textColor = [UIColor grayColor];//字体颜色
         }
         lineChart;
-    });    
+    });
 ```
 
 *添加数据*
