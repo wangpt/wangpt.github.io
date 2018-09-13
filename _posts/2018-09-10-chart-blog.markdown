@@ -31,14 +31,13 @@ tags:
 ```objc
 
     _chartView = ({
-        //1.初始化对象
         LineChartView *lineChart = [[LineChartView alloc] init];
         [self.view addSubview:lineChart];
         [lineChart mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(width, height));
             make.center.mas_equalTo(self.view);
         }];
-        //2.设置交互样式
+        
         lineChart.noDataText = @"暂无数据";//没有数据时的文字提示
         lineChart.rightAxis.enabled = NO;//不绘制右边轴
         lineChart.drawGridBackgroundEnabled = NO;//是否绘制网格背景的标志
@@ -50,8 +49,8 @@ tags:
         lineChart.doubleTapToZoomEnabled = NO;//取消双击缩放
         lineChart.dragEnabled = YES;//启用拖拽图表
         lineChart.dragDecelerationEnabled = YES;//拖拽饼状图后是否有惯性效果
-        //3.设置x轴的样式
-        ChartXAxis *xAxis = lineChart.xAxis;
+   
+        ChartXAxis *xAxis = lineChart.xAxis;//获取X轴
         xAxis.drawGridLinesEnabled = NO;//不绘制网格线为NO 绘制为YES
         xAxis.axisLineWidth = 1.0/[UIScreen mainScreen].scale;//设置X轴线宽
         xAxis.labelPosition = XAxisLabelPositionBottom;//X轴的显示位置，默认是显示在上面的
@@ -60,7 +59,7 @@ tags:
         xAxis.valueFormatter = self;//用于设置x轴文字显示
         xAxis.spaceMin = 0.5;//设置坐标轴额外的最小空间
         xAxis.spaceMax = 0.5;//设置坐标轴额外的最大空间
-        //4.设置y轴的样式
+        
         ChartYAxis *leftAxis = lineChart.leftAxis;//获取左边Y轴
         leftAxis.drawGridLinesEnabled = NO;//不绘制网格线
         leftAxis.axisLineWidth = 1.0/[UIScreen mainScreen].scale;//Y轴线宽
@@ -75,8 +74,8 @@ tags:
         leftAxis.labelTextColor =  [UIColor blueColor];//label文字颜色
         leftAxis.axisLineColor = [UIColor blueColor];//轴线的颜色
         leftAxis.labelFont = [UIFont systemFontOfSize:10.0f];//文字字体
-        //5.图例样式
-        ChartLegend *l = lineChart.legend;//
+        
+        ChartLegend *l = lineChart.legend;//获取图例样式
         l.enabled = YES;//显示图例说明
         l.horizontalAlignment = ChartLegendHorizontalAlignmentCenter;//水平方向
         l.verticalAlignment = ChartLegendVerticalAlignmentTop;//垂直方向
@@ -103,8 +102,7 @@ tags:
 {
     double range = 100;//最大随机数
     NSInteger lineCount = 2;//条数
-    //添加随机数据
-    NSMutableArray *all_vals = @[].mutableCopy;
+    NSMutableArray *all_vals = @[].mutableCopy;//添加随机数据
     for (int count = 0; count<lineCount; count++) {
         NSMutableArray *yVals = [[NSMutableArray alloc] init];
         for (int i = 0; i < _months.count; i++)
@@ -117,6 +115,7 @@ tags:
     
     if (_chartView.data.dataSetCount > 0)
     {//更新数据
+    
         [all_vals enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             LineChartDataSet *set = (LineChartDataSet *)_chartView.data.dataSets[idx];
             set.values = obj;
