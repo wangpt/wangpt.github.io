@@ -29,7 +29,7 @@ tags:
 *对象初始化*
 
 ```objc
-        _chartView = ({
+    _chartView = ({
         //1.初始化对象
         
         LineChartView *lineChart = [[LineChartView alloc] init];
@@ -40,104 +40,63 @@ tags:
         }];
         //2.设置交互样式
         
-        lineChart.noDataText = @"暂无数据";//没有数据时的文字提示
-        
-        lineChart.rightAxis.enabled = NO;//不绘制右边轴
-        
-        lineChart.drawGridBackgroundEnabled = NO;//是否绘制网格背景的标志
-        
-        lineChart.chartDescription.enabled = NO;//是否显示图标描述
-        
+        lineChart.noDataText = @"暂无数据";
+        lineChart.rightAxis.enabled = NO;
+        lineChart.drawGridBackgroundEnabled = NO;
+        lineChart.chartDescription.enabled = NO;
         lineChart.chartDescription.text = @"折现图";
-        
-        lineChart.scaleXEnabled = NO;//取消X轴缩放
-        
-        lineChart.scaleYEnabled = NO;//取消Y轴缩放
-        
-        lineChart.pinchZoomEnabled = NO;//XY轴是否同时缩放
-        
-        lineChart.doubleTapToZoomEnabled = NO;//取消双击缩放
-        
-        lineChart.dragEnabled = YES;//启用拖拽图表
-        
-        lineChart.dragDecelerationEnabled = YES;//拖拽饼状图后是否有惯性效果
+        lineChart.scaleXEnabled = NO;
+        lineChart.scaleYEnabled = NO;
+        lineChart.pinchZoomEnabled = NO;
+        lineChart.doubleTapToZoomEnabled = NO;
+        lineChart.dragEnabled = YES;
+        lineChart.dragDecelerationEnabled = YES;
        
         //3.设置x轴的样式
         
         ChartXAxis *xAxis = lineChart.xAxis;
-        
-        xAxis.drawGridLinesEnabled = NO;//不绘制网格线为NO 绘制为YES
-        
-        xAxis.axisLineWidth = 1.0/[UIScreen mainScreen].scale;//设置X轴线宽
-        
-        xAxis.labelPosition = XAxisLabelPositionBottom;//X轴的显示位置，默认是显示在上面的
-        
-        xAxis.labelTextColor = [UIColor blueColor];//label文字颜色
-        
-        xAxis.axisLineColor = [UIColor blueColor];//x轴线的颜色
-        
-        xAxis.valueFormatter = self;//用于设置x轴文字显示
-        
-        xAxis.spaceMin = 0.5;//设置坐标轴额外的最小空间
-        
-        xAxis.spaceMax = 0.5;//设置坐标轴额外的最大空间
+        xAxis.drawGridLinesEnabled = NO;
+        xAxis.axisLineWidth = 1.0/[UIScreen mainScreen].scale;
+        xAxis.labelPosition = XAxisLabelPositionBottom;
+        xAxis.labelTextColor = [UIColor blueColor];
+        xAxis.granularity = 1.0; 
+        xAxis.axisLineColor = [UIColor blueColor];
+        xAxis.valueFormatter = self;
+        xAxis.spaceMin = 0.5;
+        xAxis.spaceMax = 0.5;
         
         //4.设置y轴的样式
         
-        ChartYAxis *leftAxis = lineChart.leftAxis;//获取左边Y轴
-        
-        leftAxis.drawGridLinesEnabled = NO;//不绘制网格线
-        
-        leftAxis.axisLineWidth = 1.0/[UIScreen mainScreen].scale;//Y轴线宽
-        
-        leftAxis.labelCount = 5;//Y轴label数量，数值不一定，如果forceLabelsEnabled等于YES, 则强制绘制制定数量的label, 但是可能不平均
-        
-        leftAxis.forceLabelsEnabled = NO;//不强制绘制指定数量的label
-        
-        //    leftAxis.axisMaximum = 150.0;//设置Y轴的最大值
-        
-        leftAxis.axisMinimum = 0.0;//设置Y轴的最小值
-        
-        leftAxis.drawZeroLineEnabled = NO;//从0开始绘画
-        
-        leftAxis.spaceTop = 0.05;//最大值到顶部的范围比
-        
-        leftAxis.drawLimitLinesBehindDataEnabled = YES;//设置限制线绘制在柱形图的后面
-        
-        leftAxis.labelPosition = YAxisLabelPositionOutsideChart;//label位置
-        
-        leftAxis.labelTextColor =  [UIColor blueColor];//label文字颜色
-        
-        leftAxis.axisLineColor = [UIColor blueColor];//轴线的颜色
-        
-        leftAxis.labelFont = [UIFont systemFontOfSize:10.0f];//文字字体
+        ChartYAxis *leftAxis = lineChart.leftAxis;
+        leftAxis.drawGridLinesEnabled = NO;
+        leftAxis.axisLineWidth = 1.0/[UIScreen mainScreen].scale;
+        leftAxis.labelCount = 5;
+        leftAxis.forceLabelsEnabled = NO;
+        leftAxis.axisMinimum = 0.0;
+        leftAxis.drawZeroLineEnabled = NO;
+        leftAxis.spaceTop = 0.05;
+        leftAxis.drawLimitLinesBehindDataEnabled = YES;
+        leftAxis.labelPosition = YAxisLabelPositionOutsideChart;
+        leftAxis.labelTextColor =  [UIColor blueColor];
+        leftAxis.axisLineColor = [UIColor blueColor];
+        leftAxis.labelFont = [UIFont systemFontOfSize:10.0f];
        
         //5.图例样式
         
-        ChartLegend *l = lineChart.legend;//
-       
-        l.enabled = YES;//显示图例说明
-        
-        l.horizontalAlignment = ChartLegendHorizontalAlignmentCenter;//水平方向
-        
-        l.verticalAlignment = ChartLegendVerticalAlignmentTop;//垂直方向
-        
-        l.orientation = ChartLegendOrientationHorizontal;//方向
-        
+        ChartLegend *l = lineChart.legend;
+        l.enabled = YES;
+        l.horizontalAlignment = ChartLegendHorizontalAlignmentCenter;
+        l.verticalAlignment = ChartLegendVerticalAlignmentTop;
+        l.orientation = ChartLegendOrientationHorizontal;
         l.drawInside = NO;
         l.xEntrySpace = 7.0;
         l.yEntrySpace = 0.0;
         l.yOffset = 0.0;
-        l.formToTextSpace = 5;//文本间隔
-        
-        l.font = [UIFont systemFontOfSize:10];//字体大小
-        
-        l.form = ChartLegendFormCircle;//图示样式: 方形、线条、圆形
-        
-        l.formSize = 12;//图示大小
-        
-        l.textColor = [UIColor grayColor];//字体颜色
-        
+        l.formToTextSpace = 5;
+        l.font = [UIFont systemFontOfSize:10];
+        l.form = ChartLegendFormCircle;
+        l.formSize = 12;
+        l.textColor = [UIColor grayColor];
         lineChart;
     });
 
@@ -149,13 +108,9 @@ tags:
 
 - (void)updateChartData
 {
-    double range = 100;//最大随机数
-    
-    NSInteger lineCount = 2;//条数
-    
-    //添加随机数据
-    
-    NSMutableArray *all_vals = @[].mutableCopy;
+    double range = 100;
+    NSInteger lineCount = 2;
+    NSMutableArray *allLine_vals = @[].mutableCopy;
     for (int count = 0; count<lineCount; count++) {
         NSMutableArray *yVals = [[NSMutableArray alloc] init];
         for (int i = 0; i < _months.count; i++)
@@ -163,13 +118,12 @@ tags:
             double val = arc4random_uniform(range) + 10;
             [yVals addObject:[[ChartDataEntry alloc] initWithX:i y:val]];
         }
-        [all_vals addObject:yVals];
+        [allLine_vals addObject:yVals];
     }
     
     if (_chartView.data.dataSetCount > 0)
-    {//更新数据
-        
-        [all_vals enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    {
+        [allLine_vals enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             LineChartDataSet *set = (LineChartDataSet *)_chartView.data.dataSets[idx];
             set.values = obj;
         }];
@@ -178,66 +132,194 @@ tags:
     
     }else{
         NSMutableArray *dataSets = [[NSMutableArray alloc] init];
-        [all_vals enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [allLine_vals enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             NSString *label = [NSString stringWithFormat:@"第%lu条",(unsigned long)idx+1];
-            LineChartDataSet *set = [[LineChartDataSet alloc] initWithValues:all_vals[idx] label:label];
+            LineChartDataSet *set = [[LineChartDataSet alloc] initWithValues:allLine_vals[idx] label:label];
             [set setColor:TJRandomColor];
-            set.lineWidth = 1.0;//线条宽度
-            
+            set.lineWidth = 1.0;
             set.drawCircleHoleEnabled =NO;
-            [set setCircleColor:UIColor.redColor];//拐点颜色
-            
-            set.circleRadius = 3.0;//拐点半径
-            
-            set.drawCirclesEnabled = NO;//是否绘制拐点
-            
-            set.drawCubicEnabled = YES;
-            
-            //填充色
-            
-//            NSArray *gradientColors = @[(id)[ChartColorTemplates colorFromString:@"#FFFFFFFF"].CGColor,
-            
-//                                        (id)[ChartColorTemplates colorFromString:@"#FF007FFF"].CGColor];
-            
-//            CGGradientRef gradient = CGGradientCreateWithColors(nil, (CFArrayRef)gradientColors, nil);
-            
-//            set.fillAlpha = 0.3f;//透明度
-            
-//            set.fill = [ChartFill fillWithLinearGradient:gradient angle:90.f];//赋值填充颜色对象
-            
-//            set.drawFilledEnabled = YES;//是否填充颜色
-            
-//            CGGradientRelease(gradient);
-            
+            [set setCircleColor:UIColor.redColor];
+            set.circleRadius = 3.0;
+            set.drawCirclesEnabled = NO;
+            set.mode = LineChartModeCubicBezier;
             [dataSets addObject:set];
         }];
         LineChartData *data = [[LineChartData alloc] initWithDataSets:dataSets];
-        [data setValueTextColor:UIColor.blackColor];//文字颜色
-        
-        [data setValueFont:[UIFont systemFontOfSize:9.f]];//文字大小
-        
+        [data setValueTextColor:UIColor.blackColor];
+        [data setValueFont:[UIFont systemFontOfSize:9.f]];
         _chartView.data = data;
     }
-    
     [_chartView animateWithXAxisDuration:0.5];
-}
-
-```
-*X轴文字代理*
-
-```
-- (NSString *)stringForValue:(double)value
-                        axis:(ChartAxisBase *)axis
-{
-    NSInteger index = value;
-    return _months[index];
 }
 
 ```
 
 ###### 绘制柱状图
 ![柱状图](https://raw.githubusercontent.com/wangpt/TJCharts/master/Sources/2.png)
+*对象初始化*
 
+```objc
+
+    _chartView = ({
+    	 //1.初始化对象
+    	 
+        BarChartView *barChartView = [[BarChartView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
+        [self.view addSubview:barChartView];
+        [barChartView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(chartW, chartH));
+            make.center.mas_equalTo(self.view);
+        }];
+        //2.设置交互样式
+        
+        barChartView.extraBottomOffset = 20;
+        barChartView.fitBars = YES;
+        barChartView.noDataText = @"暂无数据";
+        barChartView.drawValueAboveBarEnabled = YES;
+        barChartView.drawBarShadowEnabled = NO;
+        barChartView.rightAxis.enabled = NO;
+        barChartView.chartDescription.enabled = NO;
+        barChartView.drawGridBackgroundEnabled = NO;
+        barChartView.scaleYEnabled = NO;
+        barChartView.doubleTapToZoomEnabled = NO;
+        barChartView.dragEnabled = NO;
+        barChartView.dragDecelerationEnabled = YES;
+        [barChartView setScaleEnabled:YES];
+        barChartView.pinchZoomEnabled = NO;
+        barChartView.maxVisibleCount = 60;
+        //3.X轴样式
+        
+        ChartXAxis *xAxis = barChartView.xAxis;
+        xAxis.granularity = 1.0; 
+        xAxis.drawGridLinesEnabled = NO;
+        xAxis.labelPosition = XAxisLabelPositionBottom;
+        xAxis.valueFormatter = self;
+        xAxis.axisLineColor = [UIColor blueColor];
+        xAxis.axisLineWidth = 0.5;
+        xAxis.labelTextColor = [UIColor blueColor];
+        //4.左边Y轴样式
+        
+        ChartYAxis *leftAxis = barChartView.leftAxis;
+        leftAxis.drawGridLinesEnabled = NO;
+        leftAxis.forceLabelsEnabled = NO;
+        leftAxis.labelCount = 8;
+        leftAxis.labelFont = [UIFont systemFontOfSize:10.f];
+        leftAxis.labelTextColor = [UIColor blueColor];
+        leftAxis.spaceTop = 0.15;
+        leftAxis.labelPosition = YAxisLabelPositionOutsideChart;
+        leftAxis.axisMinimum = 0;
+        leftAxis.inverted = NO;
+        leftAxis.axisLineWidth = 0.5;
+        leftAxis.axisLineColor = [UIColor blueColor];
+		 //5.图例样式
+		 
+        ChartLegend *l = barChartView.legend;//
+        l.enabled = YES;//不显示图例说明
+        barChartView;
+    });
+
+
+```
+*添加数据*
+
+```objc
+#pragma mark - 单组数据
+
+- (void)updateChartData
+{
+
+    double range = 50;
+    NSMutableArray *yVals = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 5; i++)
+    {
+        double mult = (range + 1);
+        double val = (double) (arc4random_uniform(mult));
+        [yVals addObject:[[BarChartDataEntry alloc] initWithX:i y:val]];
+    }
+    BarChartDataSet *set1 = nil;
+    if (_chartView.data.dataSetCount > 0)
+    {
+        set1 = (BarChartDataSet *)_chartView.data.dataSets[0];
+        set1.values = yVals;
+        [_chartView.data notifyDataChanged];
+        [_chartView notifyDataSetChanged];
+    }
+    else
+    {
+        set1 = [[BarChartDataSet alloc] initWithValues:yVals label:@"The year 2017"];
+        [set1 setColors:ChartColorTemplates.material];
+        
+        NSMutableArray *dataSets = [[NSMutableArray alloc] init];
+        [dataSets addObject:set1];
+        
+        BarChartData *data = [[BarChartData alloc] initWithDataSets:dataSets];
+        [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:10.f]];
+        
+        data.barWidth = 0.9f;
+        _chartView.data = data;
+    }
+    [_chartView animateWithYAxisDuration:1.5];
+
+}
+
+#pragma mark - 多组数据
+
+- (void)updateMultipleChartData{
+    double range = 100;
+    NSInteger lineCount = 2;
+    NSInteger groupCount = 5;
+    int startX = 0;
+    float groupSpace = 0.2f;
+    float barSpace = 0.03f;
+    float barWidth = ( 1- groupSpace)/lineCount -barSpace;
+    
+    NSMutableArray *all_vals = @[].mutableCopy;
+    for (int count = 0; count < lineCount; count++) {
+        NSMutableArray *yVals = [[NSMutableArray alloc] init];
+        for (int i = 0; i < groupCount; i++)
+        {
+            double val = arc4random_uniform(range) + 10;
+            [yVals addObject:[[BarChartDataEntry alloc] initWithX:i y:val]];
+        }
+        [all_vals addObject:yVals];
+    }
+    
+    if (_chartView.data.dataSetCount > 0)
+    {
+        [all_vals enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            BarChartDataSet *set = (BarChartDataSet *)_chartView.data.dataSets[idx];
+            set.values = obj;
+        }];
+        BarChartData *data = _chartView.barData;
+        _chartView.xAxis.axisMinimum = startX;
+        _chartView.xAxis.axisMaximum = [data groupWidthWithGroupSpace:groupSpace barSpace: barSpace] * groupCount + startX;
+        [data groupBarsFromX: startX groupSpace: groupSpace barSpace: barSpace];
+        [_chartView.data notifyDataChanged];
+        [_chartView notifyDataSetChanged];
+    }
+    else
+    {
+        NSMutableArray *dataSets = [[NSMutableArray alloc] init];
+        [all_vals enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSString *label = [NSString stringWithFormat:@"第%lu条",(unsigned long)idx+1];
+            BarChartDataSet *set = [[BarChartDataSet alloc] initWithValues:all_vals[idx] label:label];
+            [set setColor:TJRandomColor];
+            
+            [dataSets addObject:set];
+        }];
+
+        BarChartData *data = [[BarChartData alloc] initWithDataSets:dataSets];
+        [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:10.f]];
+        data.barWidth = barWidth;
+        _chartView.xAxis.axisMinimum = startX;
+        _chartView.xAxis.axisMaximum = startX + [data groupWidthWithGroupSpace:groupSpace barSpace: barSpace] * groupCount;
+        [data groupBarsFromX: startX groupSpace: groupSpace barSpace: barSpace];
+        _chartView.data = data;
+    }
+    [_chartView animateWithYAxisDuration:1.5];
+
+}
+
+```
 
 ###### 绘制饼状图
 
@@ -245,80 +327,46 @@ tags:
 *对象初始化*
 
 ```objc
-_chartView = ({
+       _chartView = ({
+        //1.初始化对象
+        
         PieChartView *pieChart = [PieChartView new];
-        
         [self.view addSubview:pieChart];
-        
         [pieChart mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(chartW, chartH));
             make.center.mas_equalTo(self.view);
         }];
+        //2.设置交互样式
         
-        //基础属性
-        
-        [pieChart setExtraOffsetsWithLeft:5.f top:10.f right:5.f bottom:5.f];//饼状图距离边缘的间隙
-
-        pieChart.usePercentValuesEnabled = YES;//是否根据所提供的数据, 将显示数据转换为百分比格式
-        
-        pieChart.dragDecelerationEnabled = YES;//拖拽饼状图后是否有惯性效果
-        
-        pieChart.drawSliceTextEnabled = YES;//是否显示区块文本
-        
-        pieChart.chartDescription.enabled = NO;//饼状图描述文字
-
-        
-        //空心圆样式(空心有两个圆组成, 一个是hole, 一个是transparentCircle, transparentCircle里面是hole, 所以饼状图中间的空心也就是一个同心圆)
-        
-        pieChart.drawHoleEnabled = YES;//饼状图是否是空心
-        
-        pieChart.rotationAngle = 0.0;//开始角度
-        
-        pieChart.rotationEnabled = YES;//是否可以旋转
-        
-        pieChart.highlightPerTapEnabled = NO;//是否可以点击
-        
-        pieChart.holeRadiusPercent = 0.38;//空心半径占比
-        
-        pieChart.holeColor = [UIColor clearColor];//空心颜色
-        
-        pieChart.transparentCircleRadiusPercent = 0.41;//半透明空心半径占比
-        
-        
+        [pieChart setExtraOffsetsWithLeft:5.f top:10.f right:5.f bottom:5.f];
+        pieChart.usePercentValuesEnabled = YES;
+        pieChart.dragDecelerationEnabled = YES;
+        pieChart.chartDescription.enabled = NO;
+        pieChart.drawHoleEnabled = YES;
+        pieChart.rotationAngle = 0.0;
+        pieChart.rotationEnabled = YES;
+        pieChart.highlightPerTapEnabled = NO;
+        pieChart.holeRadiusPercent = 0.38;
+        pieChart.holeColor = [UIColor clearColor];
+        pieChart.transparentCircleRadiusPercent = 0.41;
         if (pieChart.isDrawHoleEnabled == YES) {
-            pieChart.drawCenterTextEnabled = YES;//是否显示中间文字
-            
-            //普通文本
-            
+            pieChart.drawCenterTextEnabled = YES;
             pieChart.centerText = @"";//中间文字
-
-            //富文本
-            
             NSMutableAttributedString *centerText = [[NSMutableAttributedString alloc] initWithString:@"饼状图"];
             [centerText setAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:16],
                                         NSForegroundColorAttributeName: [UIColor orangeColor]}
                                 range:NSMakeRange(0, centerText.length)];
             pieChart.centerAttributedText = centerText;
         }
-        
-        //饼状图描述
+        //3.图例样式
         
         ChartLegend *l = pieChart.legend;
-        
-        l.enabled = YES;//隐藏描述
-        
-        l.form = ChartLegendFormCircle;//图示样式: 方形、线条、圆形
-        
-        l.formToTextSpace = 5;//文本间隔
-        
-        l.font = [UIFont systemFontOfSize:10];//字体大小
-        
-        l.textColor = [UIColor grayColor];//字体颜色
-
-        l.position = ChartLegendPositionBelowChartCenter;//图例在饼状图中的位置
-        
+        l.enabled = YES;
+        l.form = ChartLegendFormCircle;
+        l.formToTextSpace = 5;
+        l.font = [UIFont systemFontOfSize:10];
+        l.textColor = [UIColor grayColor];
         pieChart;
-        
     });
 
 ```
@@ -341,15 +389,13 @@ _chartView = ({
     for (int i = 0; i < count; i++)
     {
         
-        double randomVal = arc4random_uniform(range) + range / 2;//产生 50~150 的随机数
+        double randomVal = arc4random_uniform(range) + range / 2;
         [entries addObject:[[PieChartDataEntry alloc] initWithValue:randomVal label:parties[i % parties.count]]];
     }
     
     PieChartDataSet *dataSet = [[PieChartDataSet alloc] initWithValues:entries label:@""];
-    dataSet.sliceSpace = 2.0;//相邻区块之间的间距
-    
-    dataSet.drawValuesEnabled = YES;//是否绘制显示数据
-    // add a lot of colors
+    dataSet.sliceSpace = 2.0;
+    dataSet.drawValuesEnabled = YES;
     NSMutableArray *colors = [[NSMutableArray alloc] init];
     [colors addObjectsFromArray:ChartColorTemplates.vordiplom];
     [colors addObjectsFromArray:ChartColorTemplates.joyful];
@@ -357,18 +403,14 @@ _chartView = ({
     [colors addObjectsFromArray:ChartColorTemplates.liberty];
     [colors addObjectsFromArray:ChartColorTemplates.pastel];
     [colors addObject:[UIColor colorWithRed:51/255.f green:181/255.f blue:229/255.f alpha:1.f]];
-    //添加折现
-    dataSet.colors = colors;//区块颜色
-    dataSet.valueLinePart1OffsetPercentage = 0.8;//折线中第一段起始位置相对于区块的偏移量, 数值越大, 折线距离区块越远
-    dataSet.valueLinePart1Length = 0.2;//折线中第一段长度占比
-    dataSet.valueLinePart2Length = 0.4;//折线中第二段长度最大占比
-    dataSet.valueLineWidth = 1;//折线的粗细
-    dataSet.valueLineColor = [UIColor brownColor];//折线颜色
-//    dataSet.xValuePosition = PieChartValuePositionOutsideSlice;//名称位置
-    dataSet.yValuePosition = PieChartValuePositionOutsideSlice;//数据位置
-    
+    dataSet.colors = colors;
+    dataSet.valueLinePart1OffsetPercentage = 0.8;
+    dataSet.valueLinePart1Length = 0.2;
+    dataSet.valueLinePart2Length = 0.4;
+    dataSet.valueLineWidth = 1;
+    dataSet.valueLineColor = [UIColor brownColor];
+    dataSet.yValuePosition = PieChartValuePositionOutsideSlice;
     PieChartData *data = [[PieChartData alloc] initWithDataSet:dataSet];
-    
     NSNumberFormatter *pFormatter = [[NSNumberFormatter alloc] init];
     pFormatter.numberStyle = NSNumberFormatterPercentStyle;
     pFormatter.maximumFractionDigits = 1;
@@ -377,7 +419,6 @@ _chartView = ({
     [data setValueFormatter:[[ChartDefaultValueFormatter alloc] initWithFormatter:pFormatter]];
     [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:11.f]];
     [data setValueTextColor:UIColor.blackColor];
-    
     _chartView.data = data;
     [_chartView highlightValues:nil];
     [_chartView animateWithXAxisDuration:1.4 easingOption:ChartEasingOptionEaseOutBack];
@@ -391,7 +432,104 @@ _chartView = ({
 
 ![雷达图](https://raw.githubusercontent.com/wangpt/TJCharts/master/Sources/4.png)
 
-Demo下载
+*对象初始化*
+
+```objc
+ _chartView = ({
+        //1、对象初始化
+        
+        RadarChartView *radarChartView = [[RadarChartView alloc] init];
+        [self.view addSubview:radarChartView];
+        [radarChartView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(chartW, chartH));
+            make.center.mas_equalTo(self.view);
+        }];
+        //2.设置交互样式
+        
+        radarChartView.rotationEnabled = YES;
+        radarChartView.highlightPerTapEnabled = NO;
+        radarChartView.chartDescription.enabled = NO;
+        radarChartView.webLineWidth = 1.0;
+        radarChartView.innerWebLineWidth = 1.0;
+        radarChartView.webColor = [self colorWithHexString:@"#c2ccd0"];
+        radarChartView.innerWebColor =  [self colorWithHexString:@"#c2ccd0"];
+        radarChartView.webAlpha = 1.0;
+        //3.X轴label样式
+        
+        ChartXAxis *xAxis = radarChartView.xAxis;
+        xAxis.labelFont = [UIFont systemFontOfSize:15];//字体
+        xAxis.xOffset = 0.0;
+        xAxis.yOffset = 0.0;
+        xAxis.valueFormatter = self;
+        xAxis.labelTextColor = [self colorWithHexString:@"#057748"];
+        //4.Y轴label样式
+        
+        ChartYAxis *yAxis = radarChartView.yAxis;
+        yAxis.labelFont = [UIFont systemFontOfSize:9];
+        yAxis.labelTextColor = [UIColor lightGrayColor];
+        yAxis.labelCount = 5;
+        yAxis.axisMinimum = 0.0;
+        yAxis.axisMaximum = 100.0;
+        yAxis.drawLabelsEnabled = NO;
+        //5.设置标注
+        
+        radarChartView.legend.enabled = NO;
+        //6.设置marker
+        
+        RadarMarkerView *marker = (RadarMarkerView *)[RadarMarkerView viewFromXibIn:[NSBundle mainBundle]];
+        marker.chartView = radarChartView;
+        radarChartView.marker = marker;
+        radarChartView;
+    });
+```
+*添加数据*
+
+```objc
+- (void)updateChartData
+{
+    _chartView.yAxis.axisMinimum = 0.0;
+    _chartView.yAxis.axisMaximum = 100.0;
+    int lineCount = 1;
+    double mult = 80;
+    double min = 20;
+    int cnt = 5;
+    NSMutableArray *allLine_vals = @[].mutableCopy;
+    for (int count = 0; count<lineCount; count++) {
+        NSMutableArray *entries = [[NSMutableArray alloc] init];
+        for (int i = 0; i < cnt; i++)
+        {
+            double randomVal =(arc4random_uniform(mult) + min); 
+            [entries addObject:[[RadarChartDataEntry alloc] initWithValue:randomVal]];
+        }
+        [allLine_vals addObject:entries];
+    }
+    
+    NSMutableArray *dataSets = [[NSMutableArray alloc] init];
+    [allLine_vals enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        RadarChartDataSet *set = [[RadarChartDataSet alloc] initWithValues:obj label:[NSString stringWithFormat:@"第%lu条",(unsigned long)idx+1]];
+        UIColor *color = TJRandomColor;
+        [set setColor:color];
+        set.fillColor = color;
+        set.drawFilledEnabled = YES;
+        set.fillAlpha = 0.25;
+        set.lineWidth = 0.5;
+        set.drawHighlightCircleEnabled = YES;
+        [set setDrawHighlightIndicators:NO];
+        set.valueFont = [UIFont systemFontOfSize:9];
+        set.valueTextColor = [UIColor grayColor];
+        [dataSets addObject:set];
+    }];
+    
+    RadarChartData *data = [[RadarChartData alloc] initWithDataSets:dataSets];
+    [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:8.f]];
+    [data setDrawValues:YES];
+    data.valueTextColor = UIColor.blackColor;
+    _chartView.data = data;
+    [_chartView animateWithXAxisDuration:1.4 yAxisDuration:1.4 easingOption:ChartEasingOptionEaseOutBack];
+    
+}
+```
+## Demo下载
 
 [TJCache](https://github.com/wangpt/TJCache)
 
