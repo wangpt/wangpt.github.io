@@ -210,9 +210,9 @@ tags:
         leftAxis.inverted = NO;
         leftAxis.axisLineWidth = 0.5;
         leftAxis.axisLineColor = [UIColor blueColor];
-		 //5.图例样式
-		 
-        ChartLegend *l = barChartView.legend;//
+        //5.图例样式
+        
+        ChartLegend *l = barChartView.legend;
         l.enabled = YES;//不显示图例说明
         barChartView;
     });
@@ -351,7 +351,7 @@ tags:
         pieChart.transparentCircleRadiusPercent = 0.41;
         if (pieChart.isDrawHoleEnabled == YES) {
             pieChart.drawCenterTextEnabled = YES;
-            pieChart.centerText = @"";//中间文字
+            pieChart.centerText = @"";
             NSMutableAttributedString *centerText = [[NSMutableAttributedString alloc] initWithString:@"饼状图"];
             [centerText setAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:16],
                                         NSForegroundColorAttributeName: [UIColor orangeColor]}
@@ -457,7 +457,7 @@ tags:
         //3.X轴label样式
         
         ChartXAxis *xAxis = radarChartView.xAxis;
-        xAxis.labelFont = [UIFont systemFontOfSize:15];//字体
+        xAxis.labelFont = [UIFont systemFontOfSize:15];
         xAxis.xOffset = 0.0;
         xAxis.yOffset = 0.0;
         xAxis.valueFormatter = self;
@@ -534,7 +534,7 @@ tags:
 [TJCache](https://github.com/wangpt/TJCache)
 
 
-后记
+## 后记
 
 
 此文档会不断更新
