@@ -24,8 +24,6 @@ tags:
 ## 通过Charts框架绘制
 
 ###### 绘制折线图
-*最终效果*
-![折线图](https://raw.githubusercontent.com/wangpt/TJCharts/master/Sources/1.png)
 *对象初始化*
 
 ```objc
@@ -155,7 +153,6 @@ tags:
 ```
 
 ###### 绘制柱状图
-![柱状图](https://raw.githubusercontent.com/wangpt/TJCharts/master/Sources/2.png)
 *对象初始化*
 
 ```objc
@@ -322,8 +319,6 @@ tags:
 ```
 
 ###### 绘制饼状图
-
-![饼状图](https://raw.githubusercontent.com/wangpt/TJCharts/master/Sources/3.png)
 *对象初始化*
 
 ```objc
@@ -429,9 +424,6 @@ tags:
 
 
 ###### 绘制雷达图
-
-![雷达图](https://raw.githubusercontent.com/wangpt/TJCharts/master/Sources/4.png)
-
 *对象初始化*
 
 ```objc
