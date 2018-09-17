@@ -159,6 +159,3 @@ tags:
 ### Demo下载
 [TJCache](https://github.com/wangpt/TJCache)
 
-## 后记
-
-此文档会不断更新

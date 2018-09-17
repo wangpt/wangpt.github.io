@@ -87,6 +87,8 @@ tags:
 * [Chameleon](https://github.com/ViccAlexander/Chameleon) - 适用于iOS（ObjC和Swift）的轻量级但功能强大的平面颜色框架.
 * [Colours](https://github.com/bennyguitar/Colours) - 漂亮的预定义颜色和一组颜色方法，使您的iOS / macOS开发生活更轻松.
 * [DKNightVersion](https://github.com/Draveness/DKNightVersion) - 管理色彩，整合夜晚/多个主题
+* [SwiftTheme](https://github.com/jiecao-fm/SwiftTheme) - 主题/换肤, 夜间模式
+
 
 ---
 ## 后记
