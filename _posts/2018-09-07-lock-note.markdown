@@ -42,8 +42,7 @@ tags:
 *5.递归锁：在同一线程上该锁是可重入的，对于不同线程则相当于普通的互斥锁*
 
 *6.读写锁：对共享资源的访问者划分成读者和写者，读者只对共享资源进行读访问，写者则需要对共享资源进行写操作*
-### 介绍
-*通过各种常见锁介绍和性能评测，可以看出要是没有优先级反转的问题的话，osspinlock为最优，其次就是dispatch_semaphore，dispatch_semaphore和os_unfair_lock差距很小，然后就是pthread_mutex。*
+
 
 ###### 自旋锁
 *OSSpinLock*
@@ -241,9 +240,11 @@ tags:
 }
 ```
 
+### 总结
+*通过各种常见锁介绍和性能评测，可以看出要是没有优先级反转的问题的话，osspinlock为最优，其次就是dispatch_semaphore，dispatch_semaphore和os_unfair_lock差距很小，然后就是pthread_mutex。*
+
 ### Demo
 [TJLock](https://github.com/wangpt/TJLock)
 
-### 后记
 
-此文档已完结
+
