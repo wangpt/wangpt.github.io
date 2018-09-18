@@ -96,7 +96,7 @@ tags:
 ## CoreData
 *Core Data框架*
 
-* [Chameleon](https://github.com/ViccAlexander/Chameleon) - 可以帮助轻松的使用core data框架
+* [MagicalRecord](https://github.com/magicalpanda/MagicalRecord) - 可以帮助轻松的使用core data框架
 
 ## 数据库
 *用于处理短暂和持久的数据*
