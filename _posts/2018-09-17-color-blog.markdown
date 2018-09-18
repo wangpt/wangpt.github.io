@@ -24,7 +24,7 @@ tags:
 
 ### DKNightVersion的使用
 
-###### 用法
+###### 基础用法
 *修改DKColorTable.txt文件，创建颜色表文件*
 
 ```objc

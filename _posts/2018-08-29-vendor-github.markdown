@@ -43,7 +43,7 @@ tags:
 
 ### 实景增强
 
-*实景增强*
+*可帮助您构建无与伦比的增强现实体验*
 
 * [Awesome-ARKit](https://github.com/olucurious/Awesome-ARKit) -ARKit项目和资源的精选列表.
 
@@ -57,11 +57,14 @@ tags:
 
 
 ### 缓存
+*高性能缓存库和框架*
+
 * [HanekeSwift](https://github.com/Haneke/HanekeSwift) - 用Swift编写的轻量级通用缓存
 * [PINCache](https://github.com/pinterest/PINCache) - 适用于iOS和macOS的平台，安全的对象缓存
 * [YYCache](https://github.com/ibireme/YYCache) - 适用于iOS的高性能缓存框架.
 
 ### 图表
+*美观，简单，完全定制的图表*
 
 * [Charts](https://github.com/danielgindi/Charts) -  iOS功能强大的图表/图表框架，相当于[MPAndroidChart](https://github.com/PhilJay/MPAndroidChart).
 * [PNChart](https://github.com/kevinzhow/PNChart) - iOS中使用的简单而美观的图表库
