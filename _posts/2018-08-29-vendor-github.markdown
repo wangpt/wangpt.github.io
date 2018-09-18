@@ -30,6 +30,9 @@ tags:
 - [代码质量](#代码质量)
 - [代码分析](#代码分析)
 - [颜色](#颜色)
+- [CoreData](#CoreData)
+- [数据库](#数据库)
+- [数据结构算法](#数据结构算法)
 
 ## 内容
 ### 应用路由
@@ -90,6 +93,26 @@ tags:
 * [DKNightVersion](https://github.com/Draveness/DKNightVersion) - 管理色彩，整合夜晚/多个主题
 * [SwiftTheme](https://github.com/jiecao-fm/SwiftTheme) - 主题/换肤, 夜间模式
 
+## CoreData
+*Core Data框架*
+
+* [Chameleon](https://github.com/ViccAlexander/Chameleon) - 可以帮助轻松的使用core data框架
+
+## 数据库
+*用于处理短暂和持久的数据*
+
+* [Realm](https://github.com/realm/realm-cocoa) - 作为CoreData和SQLite的替代品，使用简单快速
+* [YapDatabase](https://github.com/yapstudios/YapDatabase) - 是iOS和Mac的可扩展数据库
+* [FMDB](https://github.com/ccgus/fmdb) - 封装SQLite的框架
+* [SwiftyUserDefaults](https://github.com/radex/SwiftyUserDefaults) - 静态类型的NSUserDefaults
+* [SQLite.swift](https://github.com/stephencelis/SQLite.swift) - 基于SQLite3安全的框架使用Swift编写
+* [WCDB](https://github.com/Tencent/wcdb) - 是一个高效，完整，易于使用的iOS，macOS移动数据库框架
+
+## 数据结构算法
+*令人惊叹的数据结构包装器和库*
+
+* [Dollar](https://github.com/ankurp/Dollar) - Swift语言的功能工具带，类似于Javascript中的Lo-Dash或Underscore.js
+* [swift-algorithm-club](https://github.com/raywenderlich/swift-algorithm-club) - Swift中的算法和数据结构，带有解释
 
 ---
 ## 后记
