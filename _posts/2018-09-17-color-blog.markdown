@@ -21,8 +21,63 @@ tags:
 *管理色彩，整合夜晚/多个主题*
 
 ---
-### 自定义主题
-###### 简单实现
+### 1.DKNightVersion的使用
+
+###### 基础用法
+*修改DKColorTable.txt文件，创建颜色表文件*
+
+```objc
+NORMAL   NIGHT    RED      YELLOW
+#ffffff  #343434  #FF0000  #ffff00  TJBG
+#aaaaaa  #313131  #aaaaaa  #ffff00  SEP
+
+```
+*配置颜色选择器DKColorPickerWithKey*
+
+```objc
+    self.view.dk_backgroundColorPicker = DKColorPickerWithKey(TJBG);
+
+```
+*修改对应主题颜色*
+
+```
+    switch (button.tag) {
+        case 0:
+            [self.dk_manager dawnComing];
+            break;
+        case 1:
+            [self.dk_manager nightFalling];
+            break;
+        case 2:
+            self.dk_manager.themeVersion = @"RED";
+            break;
+        default:
+            self.dk_manager.themeVersion = @"YELLOW";
+            break;
+    }
+```
+###### 高级用法
+*设置文字颜色*
+
+```objc
+    titleLabel.dk_textColorPicker = DKColorPickerWithRGB(0x343434, 0xffffff, 0xffffff,0x343434);
+
+```
+*设置图片主题*
+
+```objc
+    imageView.dk_imagePicker = DKImagePickerWithNames(@"night", @"normal", @"night1",@"normal1");
+
+```
+*设置图片透明度*
+
+```objc
+    imageView.dk_alphaPicker = DKAlphaPickerWithAlphas(1.f, 0.8f, 0.1f,1.f);
+
+```
+
+### 2.TJTheme的实现和使用
+###### 实现过程
 *添加主题管理类*
 
 ```objc
@@ -100,60 +155,7 @@ tags:
 ```
 
 
-### DKNightVersion的使用
 
-###### 基础用法
-*修改DKColorTable.txt文件，创建颜色表文件*
-
-```objc
-NORMAL   NIGHT    RED      YELLOW
-#ffffff  #343434  #FF0000  #ffff00  TJBG
-#aaaaaa  #313131  #aaaaaa  #ffff00  SEP
-
-```
-*配置颜色选择器DKColorPickerWithKey*
-
-```objc
-    self.view.dk_backgroundColorPicker = DKColorPickerWithKey(TJBG);
-
-```
-*修改对应主题颜色*
-
-```
-    switch (button.tag) {
-        case 0:
-            [self.dk_manager dawnComing];
-            break;
-        case 1:
-            [self.dk_manager nightFalling];
-            break;
-        case 2:
-            self.dk_manager.themeVersion = @"RED";
-            break;
-        default:
-            self.dk_manager.themeVersion = @"YELLOW";
-            break;
-    }
-```
-###### 高级用法
-*设置文字颜色*
-
-```objc
-    titleLabel.dk_textColorPicker = DKColorPickerWithRGB(0x343434, 0xffffff, 0xffffff,0x343434);
-
-```
-*设置图片主题*
-
-```objc
-    imageView.dk_imagePicker = DKImagePickerWithNames(@"night", @"normal", @"night1",@"normal1");
-
-```
-*设置图片透明度*
-
-```objc
-    imageView.dk_alphaPicker = DKAlphaPickerWithAlphas(1.f, 0.8f, 0.1f,1.f);
-
-```
 
 
 ## Demo下载
