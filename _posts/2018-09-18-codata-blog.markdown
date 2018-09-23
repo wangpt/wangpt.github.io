@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "iOS数据库管理CoreData的使用"
+title:      "iOS数据库之CoreData"
 subtitle:   " \"Exmple for MagicalRecord\""
 date:       2018-09-18 12:00:00
 author:     "Wangpt"
