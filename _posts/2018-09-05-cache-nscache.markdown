@@ -62,31 +62,58 @@ tags:
 
 ``` objc
 
-- (void)updataPersonObject:(id<NSCoding>)object{
-    YYCache *cache = [YYCache cacheWithName:TJCacheName];
-    cache.memoryCache.shouldRemoveAllObjectsOnMemoryWarning=YES;
-    [cache setObject:object forKey:TJCacheKey];
+static YYCache *_dataCache;
+static NSString *const TJCacheName = @"TJCacheName";
+
++ (void)initialize
+{
+    _dataCache = [YYCache cacheWithName:TJCacheName];
 }
 
-- (void)removePerson{
-    YYCache *cache = [YYCache cacheWithName:TJCacheName];
-    [cache removeObjectForKey:TJCacheKey];
+#pragma mark - 增改
++ (void)updataObject:(id<NSCoding>)object forKey:(NSString *)key{
+    [_dataCache setObject:object forKey:key];
 }
 
-- (void)removeAllObjects{
-    YYCache *cache = [YYCache cacheWithName:TJCacheName];
-    [cache removeAllObjects];
++ (void)updataObject:(id<NSCoding>)object forKey:(NSString *)key withBlock:(void (^)(void))block{
+    [_dataCache setObject:object forKey:key withBlock:block];
+}
+#pragma mark - 删除
++ (void)removeObjectForKey:(NSString *)key{
+    [_dataCache removeObjectForKey:key];
 }
 
-+ (BOOL)checkPerson{
-    YYCache *cache = [YYCache cacheWithName:TJCacheName];
-    return [cache containsObjectForKey:TJCacheKey];
++ (void)removeObjectForKey:(NSString *)key withBlock:(void (^)(NSString *key))block{
+    [_dataCache removeObjectForKey:key withBlock:block];
 }
 
-- (PersonModel *)readPerson{
-    YYCache *cache = [YYCache cacheWithName:TJCacheName];
-    PersonModel *model = (PersonModel *)[cache objectForKey:TJCacheKey];
-    return model;
++ (void)removeAllObjects{
+    [_dataCache.diskCache removeAllObjects];
+}
+
++ (void)removeAllObjectsWithBlock:(void(^)(void))block {
+    [_dataCache.diskCache removeAllObjectsWithBlock:block];
+}
+
+#pragma mark - 查找
++ (NSInteger)totalCost{
+    return [_dataCache.diskCache totalCost];
+}
+
++ (BOOL)containsObjectForKey:(NSString *)key{
+    return [_dataCache containsObjectForKey:key];
+}
+
++ (void)containsObjectForKey:(NSString *)key withBlock:(void (^)(NSString *key, BOOL contains))block {
+    return [_dataCache containsObjectForKey:key withBlock:block];
+}
+
++ (id<NSCoding>)objectForKey:(NSString *)key{
+    return [_dataCache objectForKey:key];
+}
+
++ (void)objectForKey:(NSString *)key withBlock:(void (^)(NSString *key, id<NSCoding> object))block {
+    [_dataCache objectForKey:key withBlock:block];
 }
 
 ```
