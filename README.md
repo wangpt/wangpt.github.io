@@ -21,7 +21,7 @@ to see [wangpt blog](https://techwpt.com)
 ### 4.总结
 
 ###### doing
-学习CoreData
+* 学习CoreData使用方法
 
 
 ###### to do
@@ -46,7 +46,7 @@ to see [wangpt blog](https://techwpt.com)
 
 * 缓存
  
-	1.整理了一下YYCache和PINCache的使用方法，发现了一个问题调用YY同步的接口可以进行增删改查的操作，但调用异步的姐口，数据不能完成存储，而PIN则可以正常使用，具体原因有待核实。
+	1.整理了一下YYCache和PINCache的使用方法，包含增删改查以及同步和异步方法。
 	
 	2.整理复习了一下线程锁的相关知识
 
