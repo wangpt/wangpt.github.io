@@ -23,6 +23,12 @@ tags:
 
 ### MagicalRecord的使用
 
+###### 1.创建model
+*首先创建一个数据Model，->file->new->CoreData ->选择data model，取名TJPersonModel*
+###### 2.创建模型
+*分别创建两个实体，PersonEntity和PersonInfoEntity*
+###### 3.生成对应的Model文件了
+*Editor->Create NSManagedObject  Subclass..，然后全选，下一步到完成即可*
 
 
 
