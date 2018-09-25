@@ -71,6 +71,7 @@ static NSString *const TJCacheName = @"TJCacheName";
 }
 
 #pragma mark - 增改
+
 + (void)updataObject:(id<NSCoding>)object forKey:(NSString *)key{
     [_dataCache setObject:object forKey:key];
 }
@@ -79,6 +80,7 @@ static NSString *const TJCacheName = @"TJCacheName";
     [_dataCache setObject:object forKey:key withBlock:block];
 }
 #pragma mark - 删除
+
 + (void)removeObjectForKey:(NSString *)key{
     [_dataCache removeObjectForKey:key];
 }
@@ -96,6 +98,7 @@ static NSString *const TJCacheName = @"TJCacheName";
 }
 
 #pragma mark - 查找
+
 + (NSInteger)totalCost{
     return [_dataCache.diskCache totalCost];
 }
