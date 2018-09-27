@@ -34,6 +34,8 @@ tags:
 - [数据库](#数据库)
 - [数据结构算法](#数据结构算法)
 - [时间](#时间)
+- [调试](#调试)
+- [开发异步](#开发异步)
 ## 内容
 ### 应用路由
 *优雅的URL路由，导航框架，深层链接等*
@@ -122,6 +124,19 @@ tags:
 
 * [SwiftDate](https://github.com/malcommac/SwiftDate) - Swift中管理日期和时区的最佳方式
 *  [DateTools](https://github.com/MatthewYork/DateTools) - Objective-C中的日期和时间变得简单
+
+## 调试
+*调试工具，崩溃报告，日志和控制台UI*
+
+* [FLEX](https://github.com/Flipboard/FLEX) - 适用于iOS的应用内调试和探索工具
+* [chisel](https://github.com/facebook/chisel) - Chisel是LLDB命令的集合，用于帮助调试iOS应用程序
+* [PonyDebugger](https://github.com/square/PonyDebugger) - 使用Chrome开发者工具为您的原生iOS应用程序进行远程网络和数据调试
+* [GodEye](https://github.com/zixun/GodEye) - 使用基于Swift的一行代码自动显示日志，崩溃，网络，ANR，泄漏，CPU，RAM，FPS，NetFlow，文件夹等
+
+## 开发异步
+*可以帮助您在Swift中编写更好的异步代码*
+
+* [PromiseKit](https://github.com/mxcl/PromiseKit) - 专门针对 Swift 和 Objective-C 语言的解决方案
 
 ---
 ## 后记
