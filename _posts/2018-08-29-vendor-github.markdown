@@ -36,6 +36,10 @@ tags:
 - [时间](#时间)
 - [调试](#调试)
 - [开发异步](#开发异步)
+- [文件](#文件)
+- [函数式编程](#函数式编程)
+- [GCD](#GCD)
+- [手势](#手势)
 ## 内容
 ### 应用路由
 *优雅的URL路由，导航框架，深层链接等*
@@ -137,7 +141,24 @@ tags:
 *可以帮助您在Swift中编写更好的异步代码*
 
 * [PromiseKit](https://github.com/mxcl/PromiseKit) - 专门针对 Swift 和 Objective-C 语言的解决方案
+* [Bolts-ObjC](https://github.com/BoltsFramework/Bolts-ObjC) - 库的集合，旨在使开发移动应用程序更容易
 
+## 文件
+*文件管理，zip处理*
+* [ZipArchive](https://github.com/ZipArchive/ZipArchive) - ZipArchive是一个简单的实用程序类，用于在iOS和Mac上压缩和解压缩文件
+
+## 函数式编程
+*Swift函数编程工具的集合*
+* [Swiftz](https://github.com/typelift/Swiftz) - Swift中的函数式编程
+* [Argo](https://github.com/thoughtbot/Argo) - 函数式JSON解析库
+
+## GCD
+*GCD工具*
+* [Async](https://github.com/duemunk/Async) - GCD在swift上的体现
+
+## 手势
+*用于处理手势的库和工具*
+* [FDFullscreenPopGesture](https://github.com/forkingdog/FDFullscreenPopGesture) - UINavigationController的类别，启用iOS7 +系统风格的全屏弹出手势
 ---
 ## 后记
 
