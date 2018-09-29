@@ -43,6 +43,8 @@ tags:
 - [图像](#图像)
 - [硬件](#硬件)
 - [布局](#布局)
+- [记录](#记录)
+- [机器学习](#机器学习)
 ## 内容
 ### 应用路由
 *优雅的URL路由，导航框架，深层链接等*
@@ -194,8 +196,24 @@ tags:
 * [Cartography](https://github.com/robb/Cartography) - Swift的声明性自动布局
 * [Neon](https://github.com/mamaral/Neon) - 一个强大的Swift编程UI布局框架
 * [UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell) - 用于自动UITableViewCell高度计算的模板自动布局单元格
+* [Bond](https://github.com/DeclarativeHub/Bond) - Bond是一个Swift绑定框架，它将绑定概念提升到一个全新的水平。它简单，强大，类型安全，多范式
+* [MyLinearLayout](https://github.com/youngsoft/MyLinearLayout) - MyLayout是一个由Objective-C实现的强大的iOS UI框架
+* [yoga](https://github.com/facebook/yoga/tree/master/YogaKit) - 强大的布局引擎，实现Flexbox。由Facebook开发和维护。
 
+## 记录
+*调试,记录工具，框架，集成等*
 
+* [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack) - 简单但功能强大且灵活的日志框架
+* [NSLogger](https://github.com/fpillet/NSLogger) - 一种高性能日志记录实用程序
+* [SwiftyBeaver](https://github.com/SwiftyBeaver/SwiftyBeaver) - 开发和发布期间的便捷日志记录
+* [XCGLogger](https://github.com/DaveWoodCom/XCGLogger) - 用于Swift项目的调试日志框架。允许您将详细信息记录到控制台（以及可选的文件），就像使用NSLog或println一样
+
+## 机器学习
+*机器学习框架*
+* [tensorflow](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/ios) - 官方Google构建的强大神经网络库端口
+* [caffe2](https://github.com/caffe2/caffe2) - 轻量级，模块化和可扩展的深度学习框架
+* [Awesome-CoreML-Models](https://github.com/likedan/Awesome-CoreML-Models) - 一系列独特的Core ML模型
+* [Swift-AI](https://github.com/Swift-AI/Swift-AI) - Swift机器学习库
 ---
 ## 后记
 
