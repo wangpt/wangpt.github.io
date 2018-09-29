@@ -40,6 +40,9 @@ tags:
 - [函数式编程](#函数式编程)
 - [GCD](#GCD)
 - [手势](#手势)
+- [图像](#图像)
+- [硬件](#硬件)
+- [布局](#布局)
 ## 内容
 ### 应用路由
 *优雅的URL路由，导航框架，深层链接等*
@@ -145,20 +148,54 @@ tags:
 
 ## 文件
 *文件管理，zip处理*
+
 * [ZipArchive](https://github.com/ZipArchive/ZipArchive) - ZipArchive是一个简单的实用程序类，用于在iOS和Mac上压缩和解压缩文件
 
 ## 函数式编程
 *Swift函数编程工具的集合*
+
 * [Swiftz](https://github.com/typelift/Swiftz) - Swift中的函数式编程
 * [Argo](https://github.com/thoughtbot/Argo) - 函数式JSON解析库
 
 ## GCD
 *GCD工具*
+
 * [Async](https://github.com/duemunk/Async) - GCD在swift上的体现
 
 ## 手势
 *用于处理手势的库和工具*
+
 * [FDFullscreenPopGesture](https://github.com/forkingdog/FDFullscreenPopGesture) - UINavigationController的类别，启用iOS7 +系统风格的全屏弹出手势
+
+## 图像
+*CoreGraphics，CoreAnimation，SVG，CGContext库*
+
+* [SVGKit](https://github.com/SVGKit/SVGKit) - 可缩放的矢量图形
+* [Macaw](https://github.com/exyte/macaw) -  功能强大且易于使用的矢量图形库
+
+## 硬件
+*蓝牙,用于处理附近设备*
+
+* [BabyBluetooth](https://github.com/coolnameismy/BabyBluetooth) - 一个非常容易使用的蓝牙库
+
+*ImagePickers和可自定义相机实现的多个选项*
+
+* [ImagePicker](https://github.com/hyperoslo/ImagePicker) - 对于ImagePicker的封装
+
+*位置*
+
+* [LocationManager](https://github.com/intuit/LocationManager) - 提供基于块的异步API，以便一次或连续地请求当前位置
+## 布局
+*系统布局封装*
+
+* [Masonry](https://github.com/SnapKit/Masonry) - 简单的使用AutoLayout NSLayoutConstraints的强大功能
+* [PureLayout](https://github.com/PureLayout/PureLayout) - UIView类别，可以轻松地在代码中创建布局约束
+* [SnapKit](https://github.com/SnapKit/SnapKit) - 适用于iOS和macOS的Swift Autolayout
+* [Cartography](https://github.com/robb/Cartography) - Swift的声明性自动布局
+* [Neon](https://github.com/mamaral/Neon) - 一个强大的Swift编程UI布局框架
+* [UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell) - 用于自动UITableViewCell高度计算的模板自动布局单元格
+
+
 ---
 ## 后记
 
