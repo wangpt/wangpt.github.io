@@ -45,6 +45,19 @@ tags:
 - [布局](#布局)
 - [记录](#记录)
 - [机器学习](#机器学习)
+- [算法](#算法)
+- [消息](#消息)
+- [网络](#网络)
+- [通知](#通知)
+- [解析](#解析)
+- [支付](#支付)
+- [权限](#权限)
+- [响应式编程](#响应式编程)
+- [SDK](#SDK)
+- [加密](#加密)
+- [秘钥](#秘钥)
+- [服务器](#服务器)
+ 
 ## 内容
 ### 应用路由
 *优雅的URL路由，导航框架，深层链接等*
@@ -210,10 +223,144 @@ tags:
 
 ## 机器学习
 *机器学习框架*
+
 * [tensorflow](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/ios) - 官方Google构建的强大神经网络库端口
 * [caffe2](https://github.com/caffe2/caffe2) - 轻量级，模块化和可扩展的深度学习框架
 * [Awesome-CoreML-Models](https://github.com/likedan/Awesome-CoreML-Models) - 一系列独特的Core ML模型
 * [Swift-AI](https://github.com/Swift-AI/Swift-AI) - Swift机器学习库
+
+## 算法
+*常用算法*
+
+* [Surge](https://github.com/mattt/Surge) - 一个Swift库，它使用Accelerate框架为矩阵数学，数字信号处理和图像处理提供高性能函数。
+
+
+## 媒体
+*音频*
+
+* [AudioKit](https://github.com/audiokit/AudioKit) - 用于合成，处理和分析声音的强大工具包
+* [EZAudio](https://github.com/syedhali/EZAudio) - 基于Core Audio构建的iOS / macOS音频可视化框架
+
+*GIF*
+
+* [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage) - 适用于iOS的Performant动画GIF引擎
+
+*图片*
+
+* [GPUImage](https://github.com/BradLarson/GPUImage) - 基于GPU的图像和视频处理的开源iOS框架
+* [SDWebImage](https://github.com/rs/SDWebImage) - 具有UIImageView类别的缓存支持的异步图像下载程序
+* [PINRemoteImage](https://github.com/pinterest/PINRemoteImage) - 线程安全，高性能，功能丰富的图像获取器
+* [FastImageCache](https://github.com/path/FastImageCache) - 用于在滚动时快速显示图像的iOS库
+* [AlamofireImage](https://github.com/Alamofire/AlamofireImage) - Alamofire的图像组件库
+* [Nuke](https://github.com/kean/Nuke) - 图像加载，处理，缓存和预热
+* [YYWebImage](https://github.com/ibireme/YYWebImage) - 异步图像加载框架
+* [Kingfisher](https://github.com/onevcat/Kingfisher) - 轻量级和纯Swift实现的库，用于从Web下载和缓存图像
+* [MWPhotoBrowser](https://github.com/mwaterfall/MWPhotoBrowser) - 一个简单的iOS照片和视频浏览器，带有网格视图，标题和选择
+* [GPUImage2](https://github.com/BradLarson/GPUImage2) - GPUImage 2是一个获得BSD许可的Swift框架，用于GPU加速视频和图像处理
+
+*媒体处理*
+
+* [SwiftOCR](https://github.com/garnele007/SwiftOCR) - 用Swift编写的快速简单的OCR库
+
+*PDF*
+
+* [Reader](https://github.com/vfr/Reader) - 适用于iOS的PDF阅读器核心
+
+*媒体流*
+
+* [LFLiveKit](https://github.com/LaiFengiOS/LFLiveKit) - H264和AAC硬编码，支持GPUImage Beauty，rtmp传输，弱网络丢帧，动态切换速率
+
+*视频*
+
+* [ZFPlayer](https://github.com/renzifeng/ZFPlayer) - 支持定制任何播放器SDK和控制层
+
+
+## 消息
+*消息*
+
+* [XMPPFramework](https://github.com/robbiehanson/XMPPFramework) - 适用于Mac和iOS的Objective-C中的XMPP框架
+* [Chatto](https://github.com/badoo/Chatto) - 适用于Mac和iOS的Objective-C中的XMPP框架
+* [SlackTextViewController](https://github.com/slackhq/SlackTextViewController) - 一个插入式UIViewController子类，具有不断增长的文本输入视图和其他有用的消息传递功能
+* [Atlas-iOS](https://github.com/layerhq/Atlas-iOS) - 聊天SDK iOS - 开源移动信使
+* [Messenger](https://github.com/relatedcode/Messenger) - 适用于iOS的流畅，响应灵活的消息UI库
+
+## 网络
+*网络封装*
+
+* [AFNetworking](https://github.com/AFNetworking/AFNetworking) - 一个令人愉快的iOS和macOS网络框架
+* [RestKit](https://github.com/RestKit/RestKit) - RestKit是一个在iOS和OS X上使用和RESTful Web资源的框架
+* [Alamofire](https://github.com/Alamofire/Alamofire) - Alamofire是一个用Swift编写的HTTP网络库，来自AFNetworking的创建者
+* [CocoaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket) - 适用于Mac和iOS的异步套接字网络库
+* [Reachability.swift](https://github.com/ashleymills/Reachability.swift) - 用Swift重写了用Swift重写的Apple的Reachability
+* [Moya](https://github.com/Moya/Moya) - 用Swift编写的网络抽象层
+* [YTKNetwork](https://github.com/yuantiku/YTKNetwork) - YTKNetwork是基于AFNetworking的高级请求工具
+
+## 通知
+*通知消息*
+
+* [fastlane](https://github.com/fastlane/fastlane/tree/master/pem) - 自动生成和更新推送通知配置文件
+* [Knuff](https://github.com/KnuffApp/Knuff) - Apple推送通知服务（APNS）的调试应用程序
+* [NWPusher](https://github.com/noodlewerk/NWPusher) - 使用Apple推送通知服务（APN）的macOS和iOS应用程序和框架
+
+## 解析
+*数据解析*
+
+* [json-framework](https://github.com/stig/json-framework) - 框架在Objective-C中实现了严格的JSON解析器和生成器
+* [Mantle](https://github.com/Mantle/Mantle) - Cocoa和Cocoa Touch的模型框架
+* [jsonmodel](https://github.com/JSONModel/JSONModel) - JSON的神奇数据建模框架。创建快速强大的原子和智能数据模型类
+* [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) - 在Swift中处理JSON数据的更好方法
+* [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper) - 用Swift编写的框架，使您可以轻松地将Model对象（Classes和Structs）转换为JSON和从JSON转换
+* [YYModel](https://github.com/ibireme/YYModel) - iOS / macOS的高性能模型框架
+* [JSONExport](https://github.com/Ahmed-Ali/JSONExport) - JSONExport是一个用于macOS的桌面应用程序，它使您能够将JSON对象作为模型类导出，并使用您喜欢的语言创建相关的构造函数
+* [MJExtension](https://github.com/CoderMJLee/MJExtension) - JSON和模型之间的快速，方便和非侵入式转换。您的模型类不需要扩展另一个基类。您无需修改​​任何模型文件。
+
+
+## 支付
+*应用程序购买*
+
+* [SwiftyStoreKit](https://github.com/bizz84/SwiftyStoreKit) - 轻量级应用程序购买适用于iOS 8.0+和macOS 9.0+的Swift框架
+
+## 权限
+*应用程序权限*
+
+* [Permission](https://github.com/delba/Permission) - 在iOS上请求权限的统一API
+
+## 响应式编程
+*响应式编程框架*
+
+* [RxSwift](https://github.com/ReactiveX/RxSwift) - Swift中的响应式编程
+* [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) - 函数响应式编程框架
+* [ReSwift](https://github.com/ReSwift/ReSwift) - Swift中的单向数据流
+* [JASONETTE-iOS](https://github.com/Jasonette/JASONETTE-iOS) - 基于HTTP的Native App。只用JSON创建你自己的原生iOS应用程序
+
+## SDK
+*优秀的SDK框架*
+
+* [facebook-objc-sdk](https://github.com/facebook/facebook-objc-sdk) - Facebook iOS SDK
+* [ResearchKit](https://github.com/ResearchKit/ResearchKit) - ResearchKit是一个开源软件框架，可以轻松地为医学研究或其他研究项目创建应用程序
+
+## 加密
+*加密库*
+
+* [CryptoSwift](https://github.com/krzyzanowskim/CryptoSwift) - 第三方加密库
+* [RNCryptor](https://github.com/RNCryptor/RNCryptor) - 用于Swift中iOS和Mac的CCCryptor（AES加密）包装器
+
+## 秘钥
+*秘钥保存信息*
+
+* [Valet](https://github.com/square/Valet) - 安全地将数据存储在iOS或macOS Keychain中，而无需了解Keychain的工作原理
+* [KeychainAccess](https://github.com/kishikawakatsumi/KeychainAccess) - 适用于iOS和macOS的Keychain的简单Swift包装器
+* [SAMKeychain](https://github.com/soffes/SAMKeychain) - 适用于Mac和iOS的钥匙串的简单Objective-C包装器
+
+##服务器
+*服务器端项目支持协同程序，Linux，MacOS，iOS，Apache模块，异步调用，libuv等。*
+
+* [Perfect](https://github.com/PerfectlySoft/Perfect) - 服务器端Swift。完美的库，应用程序服务器，连接器和示例应用程序
+* [CocoaHTTPServer](https://github.com/robbiehanson/CocoaHTTPServer) - 用于macOS或iOS应用程序的小型，轻量级，可嵌入的HTTP服务器
+* [vapor](https://github.com/vapor/vapor) - 适用于iOS，macOS和Ubuntu的Swift优雅Web框架
+* [Kitura](https://github.com/IBM-Swift/Kitura) - Swift Web框架和HTTP服务器
+* [GCDWebServer](https://github.com/swisspol/GCDWebServer) - 用于macOS和iOS的基于轻量级GCD的HTTP服务器（包括基于Web的上传器和WebDAV服务器）
+
 ---
 ## 后记
 
