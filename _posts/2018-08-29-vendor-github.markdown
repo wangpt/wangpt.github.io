@@ -197,9 +197,10 @@ tags:
 
 * [ImagePicker](https://github.com/hyperoslo/ImagePicker) - 对于ImagePicker的封装
 
-*位置*
+*位置管理*
 
 * [LocationManager](https://github.com/intuit/LocationManager) - 提供基于块的异步API，以便一次或连续地请求当前位置
+
 ## 布局
 *系统布局封装*
 
@@ -352,7 +353,7 @@ tags:
 * [KeychainAccess](https://github.com/kishikawakatsumi/KeychainAccess) - 适用于iOS和macOS的Keychain的简单Swift包装器
 * [SAMKeychain](https://github.com/soffes/SAMKeychain) - 适用于Mac和iOS的钥匙串的简单Objective-C包装器
 
-##服务器
+## 服务器
 *服务器端项目支持协同程序，Linux，MacOS，iOS，Apache模块，异步调用，libuv等。*
 
 * [Perfect](https://github.com/PerfectlySoft/Perfect) - 服务器端Swift。完美的库，应用程序服务器，连接器和示例应用程序
