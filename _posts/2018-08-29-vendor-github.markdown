@@ -57,7 +57,12 @@ tags:
 - [加密](#加密)
 - [秘钥](#秘钥)
 - [服务器](#服务器)
- 
+- [文字](#文字)
+- [测试](#测试)
+- [UIKit](#UIKit) 
+- [进度条](#进度条)
+- [动画](#动画)
+- 
 ## 内容
 ### 应用路由
 *优雅的URL路由，导航框架，深层链接等*
@@ -361,6 +366,59 @@ tags:
 * [vapor](https://github.com/vapor/vapor) - 适用于iOS，macOS和Ubuntu的Swift优雅Web框架
 * [Kitura](https://github.com/IBM-Swift/Kitura) - Swift Web框架和HTTP服务器
 * [GCDWebServer](https://github.com/swisspol/GCDWebServer) - 用于macOS和iOS的基于轻量级GCD的HTTP服务器（包括基于Web的上传器和WebDAV服务器）
+
+## 文字
+*富文本框架*
+
+* [nimbus](https://github.com/jverkoey/nimbus) - Nimbus是经验丰富的iOS软件设计人员的工具包
+* [DTCoreText](https://github.com/Cocoanetics/DTCoreText) - 允许在CoreText中使用HTML代码的方法
+* [YYText](https://github.com/ibireme/YYText) - 强大的iOS文本框架，用于显示和编辑富文本
+* [FormatterKit](https://github.com/mattt/FormatterKit) - stringWithFormat:用于复杂的格式
+
+## 测试
+*测试框架*
+
+* [Kiwi](https://github.com/kiwi-bdd/Kiwi) - 用于iOS开发的行为驱动开发库
+* [Quick](https://github.com/Quick/Quick) - Swift和Objective-C的行为驱动开发框架
+* [OHHTTPStubs](https://github.com/AliSoftware/OHHTTPStubs) - 轻松存取您的网络请求！使用虚假网络数据和自定义响应时间，响应代码和标题测试您的应用程序！
+* [Nimble](https://github.com/Quick/Nimble) -  Swift和Objective-C的匹配框架
+
+## UIkit
+*UI框架*
+* [FlatUIKit](https://github.com/Grouper/FlatUIKit) - 适用于iOS的精美平面UI组件的集合
+* [Texture](https://github.com/TextureGroup/Texture) - iOS应用程序的平滑异步用户界面
+* [iCarousel](https://github.com/nicklockwood/iCarousel) - 适用于iOS和Mac OS的简单，高度可定制，数据驱动的3D轮播
+* [tapkulibrary](https://github.com/devinross/tapkulibrary) - tap + haiku = tapku，一个精心设计的开源iOS框架
+* [RKNotificationHub](https://github.com/cwRichardKim/RKNotificationHub)- 让任何UIView成为一个完整的通知中心
+* [nui](https://github.com/tombenner/nui) - iOS应用程序，带有样式表，类似于CSS
+* [Material](https://github.com/CosmicMind/Material) - Material是一个动画和图形框架，允许开发人员轻松创建漂亮的应用程序
+* [FSPagerView](https://github.com/WenchaoD/FSPagerView) - FSPagerView是一个优雅的屏幕幻灯片库。它对制作横幅，产品展示，欢迎/指南页面，屏幕/ ViewController滑块非常有帮助
+* [panelkit](https://github.com/louisdh/panelkit) - 在iOS上启用面板的UI框架
+
+## 进度条
+*各式美观的进度指示器HUD*
+
+* [NVActivityIndicatorView](https://github.com/ninjaprox/NVActivityIndicatorView) - 精美加载动画的集合
+* [MBProgressHUD](https://github.com/jdg/MBProgressHUD) - 用于在后台线程中完成工作时显示带有指示符和/或标签的半透明HUD
+* [SVProgressHUD](https://github.com/SVProgressHUD/SVProgressHUD) - 适用于iOS应用程序的简洁进度HUD
+* [M13ProgressSuite](https://github.com/Marxon13/M13ProgressSuite) - 一个包含许多工具的套件，用于显示iOS上的进度信息
+* [PKHUD](https://github.com/pkluz/PKHUD) -  基于Swift的iOS 8及更高版本的Apple HUD（音量，振铃，旋转......）重新实现
+* [NJKWebViewProgress](https://github.com/ninjinkun/NJKWebViewProgress) - UIWebView的进度界面库。您可以使用此模块为应用程序内浏览器实施进度条
+* [SkeletonView](https://github.com/Juanpe/SkeletonView) - 向用户显示正在发生的事情的优雅方式，并为他们准备等待的内容做好准备
+
+## 动画
+* [pop](https://github.com/facebook/pop) -  可扩展的iOS和macOS动画库，适用于基于物理的交互
+* [Spring](https://github.com/MengTo/Spring) - 简化Swift中iOS动画的库
+* [Canvas](https://github.com/CanvasPod/Canvas) -  Xcode中的Animate，无需代码
+* [IBAnimatable](https://github.com/IBAnimatable/IBAnimatable) -  使用IBAnimatable为Interface Builder中的App Store准备应用程序设计和原型UI，交互，导航，转换和动画。
+* [Advance](https://github.com/timdonnelly/Advance) - 适用于iOS的强大动画框架
+* [Shimmer](https://github.com/facebook/Shimmer) - 一种为iOS应用中的任何视图添加简单闪烁效果的简单方法
+* [JHChainableAnimations](https://github.com/jhurray/JHChainableAnimations) - 在Objective-C中易于阅读和编写可链接的动画
+* [Keyframes](https://github.com/facebookincubator/Keyframes) - 用于将基于Adobe AE形状的动画转换为数据格式并在Android和iOS设备上播放的库
+* [lottie-ios](https://github.com/airbnb/lottie-ios) - 用于从Adobe After Effects实时渲染本机矢量动画的iOS库
+* [AnimatedCollectionViewLayout](https://github.com/KelvinJin/AnimatedCollectionViewLayout) - 一个UICollectionViewLayout子类，用于向UICollectionView添加自定义过渡/动画
+* [Pastel](https://github.com/cruisediary/Pastel) - 像Instagram一样的渐变动画效果
+* [ViewAnimator](https://github.com/marcosgriselli/ViewAnimator) -  ViewAnimator只需一行即可实现您的用户界面
 
 ---
 ## 后记
