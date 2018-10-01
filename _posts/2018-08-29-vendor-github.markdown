@@ -67,7 +67,7 @@ tags:
 - [工具](#工具)
 - [插件](#插件)
 - [发布](#发布)
-- [应用商城](#应用商城)
+- [应用商店](#应用商店)
 
 
 ## 内容
@@ -404,7 +404,7 @@ tags:
 * [panelkit](https://github.com/louisdh/panelkit) - 在iOS上启用面板的UI框架
 
 ### 进度条
-*各式美观的进度指示器HUD*
+*ActivityIndicator*
 
 * [NVActivityIndicatorView](https://github.com/ninjaprox/NVActivityIndicatorView) - 精美加载动画的集合
 * [MBProgressHUD](https://github.com/jdg/MBProgressHUD) - 用于在后台线程中完成工作时显示带有指示符和/或标签的半透明HUD
@@ -415,6 +415,8 @@ tags:
 * [SkeletonView](https://github.com/Juanpe/SkeletonView) - 向用户显示正在发生的事情的优雅方式，并为他们准备等待的内容做好准备
 
 ### 动画
+*Animation*
+
 * [pop](https://github.com/facebook/pop) -  可扩展的iOS和macOS动画库，适用于基于物理的交互
 * [Spring](https://github.com/MengTo/Spring) - 简化Swift中iOS动画的库
 * [Canvas](https://github.com/CanvasPod/Canvas) -  Xcode中的Animate，无需代码
@@ -429,7 +431,7 @@ tags:
 * [ViewAnimator](https://github.com/marcosgriselli/ViewAnimator) -  ViewAnimator只需一行即可实现您的用户界面
 
 ### 过渡
-*过渡效果*
+*Transition*
 
 * [Hero](https://github.com/HeroTransitions/Hero) - 适用于iOS的Supercharged过渡引擎。根本没有代码构建自定义视图过渡。灵感来自Keynote的Magic Move
 
@@ -526,7 +528,7 @@ tags:
 ### 步进器
 *Stepper*
 
-* [GMStepper](https://github.com/gmertk/GMStepper) - 
+* [GMStepper](https://github.com/gmertk/GMStepper) - 中间有滑动标签的步进器
 
 ### 开关
 *Switch*
@@ -645,10 +647,10 @@ tags:
 ## 插件
 *Injection*
 
-* [injectionforxcode](https://github.com/johnno1962/injectionforxcode)
+* [injectionforxcode](https://github.com/johnno1962/injectionforxcode) - 代码注入包括Swift
 
 ## 发布
-* Distribution*
+*Distribution*
 
 * [fastlane](https://github.com/fastlane/fastlane) - 将所有iOS部署工具连接到一个简化的工作流程中
 
