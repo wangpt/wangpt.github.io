@@ -64,7 +64,7 @@ pod "MagicalRecord"
 
 
 3.进行建模
-*Editor->Create NSManagedObject  Subclass..，然后全选，下一步到完成即可，生成对应4个文件，即可完成*
+*Editor->Create NSManagedObject  Subclass..，然后全选，下一步，即可完成*
 
 ![](/img/in-post/post-coredata/coredata_3.png)
 
