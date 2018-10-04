@@ -77,6 +77,7 @@ pod "MagicalRecord"
 
 ![](/img/in-post/post-coredata/coredata_4.png)
 
+
 ### 新增实体
 
 ```objc
@@ -144,6 +145,10 @@ pod "MagicalRecord"
 }
 ```
 
+### 更多功能
+[官方文档](https://github.com/magicalpanda/MagicalRecord)
+
+[中文文档](https://github.com/ios122/MagicalRecord)
 
 ## 代码下载
 
