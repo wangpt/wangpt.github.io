@@ -20,13 +20,12 @@ tags:
 
 ---
 
-## 开发环境
-
 
 ### 知识储备
 
 * [swift教程](https://swift.org)
-* [中文教程](http://www.runoob.com/swift/swift-basic-syntax.html)
+* [the-swift-programming-language-in-chinese](https://github.com/numbbbbb/the-swift-programming-language-in-chinese)
+* [其他参考](http://www.runoob.com/swift/swift-basic-syntax.html)
 
 
 

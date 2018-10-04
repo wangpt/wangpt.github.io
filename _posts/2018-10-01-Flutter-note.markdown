@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "flutter学习笔记"
+title:      "Flutter学习笔记"
 subtitle:   " \"Exmple for Flutter\""
 date:       2018-10-01 12:00:00
 author:     "Wangpt"
