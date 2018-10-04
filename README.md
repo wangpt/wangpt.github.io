@@ -1,67 +1,18 @@
 to see [wangpt blog](https://techwpt.com)
 
-### 1.目标
-
-*每天保持技术更新，并保证每周更新一篇博客*
-
----
-
-### 2.工作
-
-*整理一些优秀的框架，~~避免重复造轮子~~ ，并记录一些个人想法*
-
----
-
-### 3.想法
-
-*完成梦想才能连接未来*
-
----
-
-### 4.总结
-
-###### doing
-* 学习CoreData使用方法
 
 
-###### to do
-
-
-
-###### done
-
-* 应用路由
-
-  整理了JLRoutes的使用方法，以后还可以模仿重写一下
-
-* 实景增强
-
-  整理了相关的资料，其中ARKit需iOS11以上支持，市面上有很多相关成熟的SDK，可以查看一下相关文章
-
-* 混合开发
-
-  1.整理了WebViewJavascriptBridge的使用方法，许多写法可以借鉴，下一步可以将以前写的Hybrid项目完善。
-  
-  2.整理了ReactNative学习资料，搭建了一下开发环境，学习了一下与原生进行交互，毕竟跨平台性诱惑性确实很大
-
-* 缓存
- 
-	1.整理了一下YYCache和PINCache的使用方法，包含增删改查以及同步和异步方法。
-	
-	2.整理复习了一下线程锁的相关知识
-
-* 图表
-
-  1.整理了一下Charts的使用方法
-  
-  2.学习了一下PNChart的框架，包含折现图，柱状图，饼状图等常见的图表，使用比较简单，由于资料比较全，直接看官方Demo就可以
-  
-* 代码质量
-
-  学习了MLeaksFinder框架，使用方便，直接集成到项目就可以了，可以帮忙监测内存泄漏问题
-  
-* 颜色
-
-  1.学习了Chameleon框架，可以使定义颜色趋向于扁平化，同时可以使用过渡色以及随机色，还有更多功能，可以看官方文档
-  
-  2.整理了一下DKNightVersion的使用方法
+文章  |  简介
+---- | ----
+[欢迎来到我的世界](http://techwpt.com/2018/08/28/note-blog/) | 整理一些优秀的框架，避免重复造轮子 ，并记录一些个人想法
+[iOS常用第三方框架](http://techwpt.com/2018/08/29/vendor-github/) | 对于常用的iOS框架的总结，基于Awesome-iOS
+[iOS组件化设计](http://techwpt.com/2018/08/30/routes-mark/) | 组件化用于拆分复杂的业务逻辑，解决模块之间的相互依赖，加快代码的编译时间，也是为了更高的复用性和可维护性
+[iOS混合开发](http://techwpt.com/2018/09/03/hybrid-app/) | Hybrid App是指介于web-app、native-app这两者之间的app，对于iOS涉及的就是JS与OC之间的交互
+[ReactNative学习笔记](http://techwpt.com/2018/09/04/reactnative-note/) | React Native是由Facebook开发的一款JS库，目的在于您关注的所有平台上实现开发人员效率 - 学习一次，随处写作
+[iOS缓存管理](http://techwpt.com/2018/09/05/cache-blog/) | 高性能 iOS 缓存框架
+[iOS数据锁](http://techwpt.com/2018/09/07/lock-note/) | 当一个线程访问数据时，而其他数据不能进行访问，保证线程安全或者可以理解为执行多线程，对于共享资源访问时保证互斥的要求
+[iOS图表](http://techwpt.com/2018/09/10/chart-blog/) | iOS功能强大的图表/图表框架
+[iOS主题颜色](http://techwpt.com/2018/09/17/color-blog/) | 管理色彩，整合夜晚/多个主题
+[iOS数据库之CoreData](http://techwpt.com/2018/09/18/codata-blog/) | 使用CoreData进行数据的增删改查功能
+[Swift学习笔记](http://techwpt.com/2018/09/22/swift-note的/) | Swift，苹果于2014年WWDC（苹果开发者大会）发布的新开发语言，可与Objective-C 共同运行于Mac OS和iOS平台，用于搭建基于苹果平台的应用程序
+[Flutter学习笔记](http://techwpt.com/2018/10/01/Flutter-note/) | Flutter 是 Google 用以帮助开发者在 iOS 和 Android 两个平台开发高质量原生 UI 的移动 SDK。Flutter 兼容现有的代码，免费且开源，在全球开发者中广泛被使用
