@@ -72,6 +72,7 @@ pod "MagicalRecord"
 *使用xcode8以上工具编译代码会出现报错，你可以根据不同的entity去分别选择启用还是关闭自动生成机制；选择model file中特定的entity，打开其Data Model Inspector窗口，将其中的Codegen选项设置为Manual／None*
 
 [Xocde8编译错误解决方案](https://www.jianshu.com/p/a344394b38cc)
+
 [Xocde8编译错误解决方案](https://www.jianshu.com/p/7899ddaff26b)
 
 ![](/img/in-post/post-coredata/coredata_4.png)
@@ -143,7 +144,6 @@ pod "MagicalRecord"
 }
 ```
 
-###  
 
 ## 代码下载
 
