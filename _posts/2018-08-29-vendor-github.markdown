@@ -285,7 +285,14 @@ tags:
 
 *视频*
 
+
+* [FFmpeg](https://github.com/FFmpeg/FFmpeg) - 一个处理多媒体数据的开源、免费的库,可以用来记录、转换数字音频、视频，并能将其转化为流.
+* [ijkplayer](https://github.com/Bilibili/ijkplayer) - 基于FFmpeg的Android / iOS视频播放器，支持MediaCodec，VideoToolbox
+* [mpv](https://github.com/mpv-player/mpv) - 基于mplayer/mplayer2的视频播放器
+* [vlc](https://github.com/videolan/vlc) - VLC 视频播放
 * [ZFPlayer](https://github.com/renzifeng/ZFPlayer) - 支持定制任何播放器SDK和控制层
+* [WMPlayer](https://github.com/zhengwenming/WMPlayer) - WMPlayer视频播放器，AVPlayer的封装，继承UIView，想怎么玩就怎么玩。支持播放mp4、m3u8、3gp、mov，网络和本地视频同时支持。全屏和小屏播放同时支持。自动感应旋转屏
+* [MRVLCPlayer](https://github.com/Maru-zhang/MRVLCPlayer) - 一款基于VLC的播放器,支持常用的各大手势功能，支持几乎所有主流格式
 
 
 ## 消息
