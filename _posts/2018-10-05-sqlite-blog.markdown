@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "iOS数据库之Sqlite"
+title:      "iOS数据库之FMDB"
 subtitle:   " \"Exmple for Sqlite\""
 date:       2018-10-05 12:00:00
 author:     "Wangpt"
@@ -31,9 +31,7 @@ tags:
     [_queue inDatabase:^(FMDatabase *db) {
         BOOL b = [db executeUpdate:@"CREATE TABLE IF NOT EXISTS People (id text,info blob)"];
         NSLog(@"create table is %d",b);
-
     }];
-    
 }
 
 ```
@@ -117,6 +115,3 @@ tags:
 }
 ```
 
-## 后记
-
-此文档会不断更新
