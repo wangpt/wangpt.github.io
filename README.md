@@ -16,3 +16,4 @@ to see [wangpt blog](https://techwpt.com)
 [iOS数据库之CoreData](http://techwpt.com/2018/09/18/codata-blog/) | 使用CoreData进行数据的增删改查功能
 [Swift学习笔记](http://techwpt.com/2018/09/22/swift-note的/) | Swift，苹果于2014年WWDC（苹果开发者大会）发布的新开发语言，可与Objective-C 共同运行于Mac OS和iOS平台，用于搭建基于苹果平台的应用程序
 [Flutter学习笔记](http://techwpt.com/2018/10/01/Flutter-note/) | Flutter 是 Google 用以帮助开发者在 iOS 和 Android 两个平台开发高质量原生 UI 的移动 SDK。Flutter 兼容现有的代码，免费且开源，在全球开发者中广泛被使用
+[iOS数据库之FMDB](http://techwpt.com/2018/10/05/sqlite-blog/) | 通过操作数据库进行数据的增删改查功能
