@@ -36,6 +36,40 @@ tags:
 
 ```
 ### 存储数据
+1.对象序列号
+
+*存储自定义对象需要进行序列号操作*
+
+```objc
+@interface PersonInfoModel : NSObject <NSCoding>
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *sex;
+@property (nonatomic, assign) NSInteger age;
+@end
+```
+
+```
+@implementation PersonInfoModel
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    if (self = [super init])
+    {
+        self.name = [aDecoder decodeObjectForKey:@"name"];
+        self.sex = [aDecoder decodeObjectForKey:@"sex"];
+        self.age = [aDecoder decodeIntegerForKey:@"age"];
+    }
+    return self;
+    
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder{
+    [aCoder encodeObject:self.name forKey:@"name"];
+    [aCoder encodeObject:self.sex forKey:@"sex"];
+    [aCoder encodeInteger:self.age forKey:@"age"];
+}
+@end
+```
+
+2.对象存储
 
 ```objc
 + (void)qunueInsertPeople:(PersonModel *)people{
