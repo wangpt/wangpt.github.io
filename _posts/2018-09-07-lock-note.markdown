@@ -243,7 +243,7 @@ tags:
 ### 总结
 *通过各种常见锁介绍和性能评测，可以看出要是没有优先级反转的问题的话，osspinlock为最优，其次就是dispatch_semaphore，dispatch_semaphore和os_unfair_lock差距很小，然后就是pthread_mutex。*
 
-### Demo
+### 代码下载
 [TJLock](https://github.com/wangpt/TJLock)
 
 
