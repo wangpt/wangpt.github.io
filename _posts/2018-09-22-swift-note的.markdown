@@ -92,7 +92,39 @@ var emptyDictionary = [String: Float]()
 emptyArray = []
 emptyDictionary = [:]
 ```
+###### 控制流
+*学习使用if和switch做判段，使用for in ，while，repeat-while等做循环，其中括号可以省略，但花括号必不可少*
 
+```
+let items = [11,12,17,20,22]
+for item in items {
+    if (item < 15){
+        print("<15的数字 \(item)");
+    }else{
+        print(">=15的数字 \(item)");
+    }
+}
+```
+
+*使用if let操作是可选项（Optional），判断后不需要解包（!），{ }内一定有值*
+
+```
+let name: String? = "老王"
+let sex: String? = "男"
+if let theName = name , let theSex = sex{
+    print("name sex 有值 ，名字为\(theName) 性别为\(theSex)")
+}else{
+    print("name sex 无值")
+}
+let age :String? = nil
+if let theAge = age {
+    print("age 有值，为\(theAge)")
+}else{
+    print("age 无值")
+}
+```
+
+*使用if var同上，只不过值可以进行修改*
 
 ## 后记
 
