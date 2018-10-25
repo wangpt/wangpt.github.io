@@ -126,6 +126,70 @@ if let theAge = age {
 
 *使用if var同上，只不过值可以进行修改*
 
+```
+let age :String? = "18"
+if var theAge = age {
+    theAge = "19"
+    print("theAge 有值，为\(theAge)")
+}else{
+    print("age 无值")
+}
+```
+*使用？？可以提供默认值，如果可选值为空，则显示为默认值*
+
+```
+let nickName: String? = nil
+let fullName: String = "xiaoming"
+let informalGreeting = "Hi \(nickName ?? fullName)"
+print(informalGreeting);
+```
+
+*Switch 选择语句支持任意类型的数据和类型的比较*
+
+```
+let string = "hello world"
+switch string {
+case "hello":
+    print("hello")
+case "world", "swift":
+    print("world")
+case let x where x.hasSuffix("world"):
+    print("\(string) swift")
+default:
+    print("no have string")
+}
+```
+*使用 while来重复代码快直到条件改变, 使用repeat为先运行再判断，所以至少运行一次*
+
+```
+var i = 10
+while i < 10 {
+    i = i * 2
+}
+print(i)
+
+var j = 10
+repeat {
+    j = j * 2
+} while j < 10
+print(j)
+```
+*可以使用 ..<来创建一个不包含最大值的区间,使用 ...来创造一个包含最大值和最小值的区间*
+
+```
+var total = 0
+for i in 0..<4 {
+    total += i
+}
+print(total)
+var more = 0
+for i in 0...4 {
+    more += i
+}
+print(more)
+```
+
+
 ## 后记
 
 此文档会不断更新
