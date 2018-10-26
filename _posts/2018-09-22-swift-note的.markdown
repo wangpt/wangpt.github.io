@@ -188,6 +188,107 @@ for i in 0...4 {
 }
 print(more)
 ```
+###### 函数和闭包
+
+*使用func声明函数，在名字后圆括号声明参数，使用->分隔参数和返回值的类型*
+
+```
+func greet(person: String, day: String) -> String {
+    return "Hello \(person), today is \(day)."
+}
+print(greet(person: "Baby", day: "Sunday"))
+
+```
+
+*默认情况下，函数使用形参作为实际参数的标签，也可以使用_避免使用*
+
+```
+func greet(_ person: String, day: String) -> String {
+    return "Hello \(person), today is \(day)."
+}
+print(greet("Baby", day: "Sunday"))
+
+```
+*函数可返回多个参数*
+
+```
+func calculateStatistics(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
+    var min = scores[0]
+    var max = scores[0]
+    var sum = 0
+    
+    for score in scores {
+        if score > max {
+            max = score
+        } else if score < min {
+            min = score
+        }
+        sum += score
+    }
+    
+    return (min, max, sum)
+}
+let statistics = calculateStatistics(scores: [5, 3, 100, 3, 9])
+print(statistics.0)
+print(statistics.1)
+print(statistics.sum)
+```
+*函数可接受多个参数*
+
+```
+func sumOf(numbers: Int...) -> Int {
+    var sum = 0
+    for number in numbers {
+        sum += number
+    }
+    return sum
+}
+print(sumOf(numbers: 3,2,1))
+```
+*函数可以内嵌。内嵌的函数可以访问外部函数里的变量。你可以通过使用内嵌函数来组织代码，以避免某个函数太长或者太过复杂*
+
+```
+func matchMinMaxSum(numbers: Int...) -> Int{
+    var y = 0;
+    func calculateStatistics(scores: [Int]) -> (min: Int, max: Int) {
+        var min = scores[0]
+        var max = scores[0]
+        for score in scores {
+            if score > max {
+                max = score
+            } else if score < min {
+                min = score
+            }
+        }
+        return (min, max)
+    }
+    let statistics = calculateStatistics(scores: numbers)
+    return statistics.min + statistics.max;
+}
+print(matchMinMaxSum(numbers: 100,30,50,120));
+```
+
+*可以把函数当返回值进行返回*
+
+```
+func makeIncrementer() -> ((Int) -> Int) {
+    func addOne(number: Int) -> Int {
+        return 1 + number
+    }
+    return addOne
+}
+var increment = makeIncrementer()
+print(increment(7))
+
+func number() -> ((Int)->Void) {
+    func twoNumber(num:Int){
+        print(num * 2)
+    }
+    return twoNumber
+}
+let numbers = number()
+numbers(7)
+```
 
 
 ## 后记
