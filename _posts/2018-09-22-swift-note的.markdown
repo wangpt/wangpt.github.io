@@ -289,7 +289,58 @@ func number() -> ((Int)->Void) {
 let numbers = number()
 numbers(7)
 ```
+*函数也可以把另外一个函数作为其自身的参数*
 
+```
+func hasAnyMatches(item: Int, condition: (Int) -> Bool) -> (number:Int, lessThanTen: Bool)  {
+    if condition(item) {
+        return (item , true)
+    }else{
+        return (item , false)
+    }
+}
+func lessThanTen(number: Int) -> Bool {
+    return number < 10
+}
+let matchs = hasAnyMatches(item: 9, condition: lessThanTen)
+print("\(matchs.number),\(matchs.lessThanTen)")
+```
+
+*函数其实就是闭包的一种特殊形式：一段可以被随后调用的代码块。闭包中的代码可以访问其生效范围内的变量和函数，就算是闭包在它声明的范围之外被执行——你已经在内嵌函数的栗子上感受过了。你可以使用花括号（ {}）括起一个没有名字的闭包。在闭包中使用 in来分隔实际参数和返回类型。*
+
+```
+let numbers = [20, 19, 7, 12]
+numbers.map({
+    (number: Int) -> Int in
+    let result = 3 * number
+    print(result);
+    return result
+})
+```
+*你有更多的选择来把闭包写的更加简洁。当一个闭包的类型已经可知，比如说某个委托的回调，你可以去掉它的参数类型，它的返回类型，或者都去掉。*
+
+```
+let numbers = [20, 19, 7, 12]
+let mappedNumbers = numbers.map({
+    (number: Int) -> Int in
+    let result = 3 * number
+    return result
+})
+print(mappedNumbers)
+```
+*你有更多的选择来把闭包写的更加简洁。当一个闭包的类型已经可知，比如说某个委托的回调，你可以去掉它的参数类型，它的返回类型，或者都去掉。*
+
+```
+let mappedNumbers = numbers.map({ number in 3 * number })
+print(mappedNumbers)
+```
+*你可以调用参数通过数字而非名字——这个特性在非常简短的闭包当中尤其有用。当一个闭包作为函数最后一个参数出入时，可以直接跟在圆括号后边。如果闭包是函数的唯一参数，你可以去掉圆括号直接写闭包*
+
+```
+let numbers = [20, 19, 7, 12]
+let sortedNumbers = numbers.sorted { $0 < $1 }
+print(sortedNumbers)
+```
 
 ## 后记
 
