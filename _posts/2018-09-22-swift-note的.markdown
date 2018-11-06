@@ -341,6 +341,85 @@ let numbers = [20, 19, 7, 12]
 let sortedNumbers = numbers.sorted { $0 < $1 }
 print(sortedNumbers)
 ```
+### 基础内容
+*基础内容包含整型值的Int，浮点型的Double和Float，布尔值Bool，字符串值的String，同时还有特殊的集合类型Array，Set，Dictionary和元组等*
+
+###### 常量和变量
+*常量设置好后不能修改，而变量可以在之后进行修改*
+
+```
+let maximumNumberOfLoginAttempts = 0
+var currentLoginAttempt = 0
+currentLoginAttempt = 1
+let x = 0.0, y = 0.0, z = 0.0
+print("\(x) \(y) \(z)")
+```
+
+*类型标注*
+
+```
+var welcomeMessage: String
+var x, y, z: Int
+x = 10
+y = 20
+z = 30
+print("\(x) \(y) \(z)")
+```
+
+*常量和变量的名字几乎可以使用任何字符，甚至包括 Unicode 字符*
+
+```
+let π = 3.14159
+let 你好 = "你好世界"
+let ?? = "dogcow"
+```
+###### 注释
+*使用注释将不需执行的文本放到代码中，作为标记或者你自己的提醒*
+
+```
+// 这是一个单行注释
+
+/*
+   这是一个多行注释
+ */
+
+```
+
+*你可以在多行注释中先开启一个注释块，接着再开启另一个注释块。然后关闭第二个注释块，再关闭第一个注释块*
+
+```
+/* 这是第一个多行注释的开头
+/* 这是第二个嵌套在内的注释块 */
+这是第一个注释块的结尾*/
+
+```
+
+###### 分号
+*swift并不需要每一句代码后写分号(;)，如果添加也没有问题，但如果在一行写多句代码，则必须添加分号*
+
+```
+let cat = "?"; print(cat)
+```
+###### 整数
+*指的是没有小数部分的数字，如12和-34等，整数分为有符号（正数、负数和0）以及无符号（正数和0。Swift 提供了 8，16，32 和 64 位编码的有符号和无符号整数。例如 8 位无符号整数的类型是 UInt8 ，32 位有符号整数的类型是 Int32*
+
+```
+let minValue = UInt8.min // 最小值是 0, 值的类型是 UInt8
+let maxValue = UInt8.max // 最大值是 255, 值得类型是 UInt8
+```
+
+*在大多数情况不需为整型特意设置一个类型，直接使用Int即可，等同于与当前原生字相同的类型,在 32 位平台上， Int 的长度和 Int32 相同,在64位平台上， Int 的长度和 Int64 相同,即使在 32 位的平台上， Int 也可以存 -2,147,483,648 到 2,147,483,647 之间的任意值,对于大多数整数区间来说完全够用了*
+
+```
+let minValue = Int.min
+let maxValue = Int.max
+print("minValue:\(minValue),maxValue:\(maxValue)")
+```
+
+###### 浮点数
+*浮点数是有小数的数字，比如 3.14159 , -273.15等*
+
+**
 
 ## 后记
 
