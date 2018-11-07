@@ -2,7 +2,7 @@
 layout:     post
 title:      "iOS网络框架"
 subtitle:   " \"Exmple for AFNetworing\""
-date:       2018-10-08 12:00:00
+date:       2018-11-06 12:00:00
 author:     "Wangpt"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
@@ -16,7 +16,7 @@ tags:
 
 
 ## 简介
-*一款轻量级网络请求开源框架,基于iOS和mac os 网络进行扩展的高性能框架，本文主要介绍AFNetWorking的封装使用*
+*轻量级网络请求开源框架AFNetWorking的封装使用*
 
 
 ---
