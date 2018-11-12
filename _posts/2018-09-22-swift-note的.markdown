@@ -417,9 +417,219 @@ print("minValue:\(minValue),maxValue:\(maxValue)")
 ```
 
 ###### 浮点数
-*浮点数是有小数的数字，比如 3.14159 , -273.15等*
+*浮点数是有小数的数字，比如 3.14159 , -273.15等，Double 有至少 15 位数字的精度，而 Float 的精度只有 6 位,在两种类型都可以的情况下，推荐使用 Double 类型。*
 
-**
+```swift
+let value1 : Double = 0.5
+let value2 : Float = -0.6
+print("value1:\(value1),value2:\(value2)")
+```
+
+###### 类型安全和类型推断
+*swift 是一门类型安全的语言，任何不匹配的类型，会标记错误，同时可以通过赋予的值进行推断出合适的类型*
+
+```swift
+let value1 = 0.5
+print("默认为Double类型")
+let anotherPi = 3 + 0.14159
+print("默认为Double类型")
+```
+
+###### 数值型字面量
+*数值型字面量也可以增加额外的格式使代码更加易读，整数和浮点数都可以添加额外的零或者添加下划线来增加代码的可读性。下面的这些格式都不会影响字面量的值*
+
+```swift
+let value1 = 000123.456
+let value2 = 1_000_000
+print("value1:\(value1),value2:\(value2)")
+```
+###### 数值类型转换
+*类型的转换必须显式地指定类型*
+
+```swift
+let three = 3
+let floatValue = 0.12
+let pi = Double(three) + floatValue
+```
+###### 类型别名
+*类型别名可以为已经存在的类型定义了一个新的可选名字。用 typealias 关键字定义类型别名。*
+
+```
+typealias AudioSample = UInt16
+let value1 = AudioSample.max
+print("value1:\(value1)")
+```
+
+###### 布尔值
+*布尔量被作为逻辑值来引用，因为他的值只能是真或者假。Swift为布尔量提供了两个常量值， true 和 false*
+
+```
+let orangesAreOrange = true
+let turnipsAreDelicious = false
+```
+
+###### 元组
+*元组把多个值合并成单一的复合型的值。元组内的值可以是任何类型，而且可以不必是同一类型*
+
+```
+//在下面的示例中， (404, "Not Found") 是一个描述了 HTTP 状态代码 的元组
+let http404Error = (404, "Not Found")
+print("value1:\(http404Error.1)")
+```
+
+*任何类型的排列都可以被用来创建一个元组，他可以包含任意多的类型。例如 (Int, Int, Int) 或者 (String, Bool) ，实际上，任何类型的组合都是可以的。*
+
+```
+let http404Error = (404, "Not Found")
+let (statusCode, statusMessage) = http404Error
+print("The status code is \(statusCode),message is \(statusMessage)")
+```
+*当你分解元组的时候，如果只需要使用其中的一部分数据，不需要的数据可以用下滑线（ _ ）代替*
+
+```
+let http404Error = (404, "Not Found")
+let (justTheStatusCode, _) = http404Error
+print("The status code is \(justTheStatusCode)")
+```
+
+*你可以在定义元组的时候给其中的单个元素命名,在命名之后，你就可以通过访问名字来获取元素的值了*
+
+```
+let http200Status = (statusCode: 200, description: "OK")
+print("The status code is \(http200Status.statusCode)")
+print("The status message is \(http200Status.description)")
+```
+
+###### 可选项
+*可以利用可选项来处理值可能缺失的情况*
+
+```
+var serverResponseCode: Int? = 404
+serverResponseCode = nil
+```
+
+*如果你定义的可选变量没有提供一个默认值，变量会被自动设置成 nil,其中 Swift 中的 nil 和Objective-C 中的 nil 不同，在 Objective-C 中 nil 是一个指向不存在对象的指针。在 Swift中， nil 不是指针，他是值缺失的一种特殊类型，任何类型的可选项都可以设置成 nil 而不仅仅是对象类型。*
+
+```
+var surveyAnswer: String?
+```
+
+*你可以利用 if 语句通过比较 nil 来判断一个可选中是否包含值。利用相等运算符 （ == ）和不等运算符（ != ）。*
+
+```
+if convertedNumber != nil {
+    print("convertedNumber contains some integer value.")
+}
+```
+
+*一旦你确定可选中包含值，你可以在可选的名字后面加一个感叹号 （ ! ） 来获取值，感叹号的意思就是说“我知道这个可选项里边有值，展开吧。”这就是所谓的可选值的强制展开*
+
+```
+if convertedNumber != nil {
+    print("convertedNumber has an integer value of \(convertedNumber!).")
+}
+```
+
+###### 可选项绑定
+*可以使用可选项绑定来判断可选项是否包含值，如果包含就把值赋给一个临时的常量或者变量。可选绑定可以与 if 和 while 的语句使用来检查可选项内部的值，并赋值给一个变量或常量*
+
+```
+var someOptional : String? = "hello"
+if let constantName = someOptional {
+    print(constantName);
+}
+```
+*而不是强制展开来重写*
+
+```
+var someOptional : String? = "hello"
+if  someOptional != nil  {
+    print(someOptional!);
+}else{
+    print(no have value);
+}
+```
+
+*你可以在同一个 if 语句中包含多可选项绑定，用逗号分隔即可*
+
+```
+if let firstNumber = Int("4"), let secondNumber = Int("42"), firstNumber < secondNumber && secondNumber < 100 {
+    print("success first = \(firstNumber) seconde  =  \(secondNumber)");
+}
+```
+*你可以使用guard let设置提前退出*
+
+```
+func doSomething(str: String?)
+{
+    guard str != nil else { return }
+    print("hello")
+}
+```
+
+###### 隐式展开可选项
+*有时在一些程序结构中可选项一旦被设定值之后，就会一直拥有值。在这种情况下，就可以去掉检查的需求，也不必每次访问的时候都进行展开，因为它可以安全的确认每次访问的时候都有一个值。这种类型的可选项被定义为隐式展开可选项。*
+
+```
+let possibleString: String? = "An optional string."
+let forcedString: String = possibleString!
+print(forcedString)
+let assumedString: String! = "An implicitly unwrapped optional string."
+let implicitString: String = assumedString
+print(implicitString)
+```
+
+###### 错误处理
+*在程序执行阶段，你可以使用错误处理机制来为错误状况负责*
+
+```
+do {
+    try canThrowAnError()
+    // no error was thrown
+} catch {
+    // an error was thrown
+}
+```
+*在函数声明过程当中加入 throws 关键字来表明这个函数会抛出一个错误。当你调用了一个可以抛出错误的函数时，需要在表达式前预置 try 关键字*
+
+```
+func canThrowAnError() throws {
+    // this function may or may not throw an error
+}
+```
+###### 断言和先决条件
+*断言和先决条件用来检测运行时发生的事情。你可以使用它们来保证在执行后续代码前某必要条件是满足的。如果布尔条件在断言或先决条件中计算为 true ，代码就正常继续执行。如果条件计算为 false ，那么程序当前的状态就是非法的；代码执行结束，然后你的 app 终止*
+
+```
+let age = -3
+assert(age >= 0, "A person's age cannot be less than zero")
+        
+```
+*如果代码已经检查了条件，你可以使用 assertionFailure(_:file:line:) 函数来标明断言失败*
+
+```
+if age > 10 {
+    print("You can ride the roller-coaster or the ferris wheel.")
+} else if age > 0 {
+    print("You can ride the ferris wheel.")
+} else {
+    assertionFailure("A person's age can't be less than zero.")
+}
+```
+*在你代码中任何条件可能潜在为假但必须肯定为真才能继续执行的地方使用先决条件。比如说，使用先决条件来检测下标没有越界，或者检测函数是否收到了一个合法的值,通过调用 precondition(_:_:file:line:) 函数来写先决条件。给这个函数传入表达式计算为 true 或 false ，如果条件的结果是 false 信息就会显示出来。*
+
+```
+let index = -3
+precondition(index > 0, "Index must be greater than zero.")
+```
+
+*值得注意的是precondition在release版本中依然奏效而Assert只在开发版本中奏效。*
+
+```
+let index = -3
+precondition(index > 0, "Index must be greater than zero.")
+assert(age >= 0, "A person's age cannot be less than zero")
+```
 
 ## 后记
 
