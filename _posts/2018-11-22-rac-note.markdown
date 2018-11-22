@@ -16,12 +16,12 @@ tags:
 
 
 ## 简介
-* ReactiveCocoa（简称为RAC）,是由Github开源的一个应用于iOS和OS开发的新框架。RAC结合了函数式编程（Functional Programming）和响应式编程（React Programming）的框架，也可称其为函数响应式编程（FRP）框架 *
+*ReactiveCocoa（简称为RAC）,是由Github开源的一个应用于iOS和OS开发的新框架。RAC结合了函数式编程（Functional Programming）和响应式编程（React Programming）的框架，也可称其为函数响应式编程（FRP）框架*
 
 
 ---
 
-## 开发环境
+### 开发环境
 
 * [地址](https://github.com/ReactiveCocoa/ReactiveCocoa)
 
@@ -29,8 +29,7 @@ tags:
 
 * [Looking for the Objective-C API?](https://github.com/ReactiveCocoa/ReactiveObjC) 
 
-
-### 1.介绍
+## 介绍
 *通过链接，组合和响应信号，可以以声明方式编写软件，而无需持续观察和更新值的代码。*
 
 例如，文本字段可以绑定到最新时间，即使它更改，而不是使用监视时钟的其他代码并每秒更新文本字段。它的工作方式与KVO非常相似，但是使用块而不是-observeValueForKeyPath:ofObject:change:context:。
@@ -40,7 +39,7 @@ RAC的一个主要优点是它提供了一种统一的方法来处理异步行�
 这是一个简单的例子
 
 ```objc
-//当self.username更改时，将新名称记录到控制台
+///当self.username更改时，将新名称记录到控制台
 [RACObserve(self, username) subscribeNext:^(NSString *newName) {
 	NSLog(@"%@", newName);
 }];
