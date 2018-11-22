@@ -38,8 +38,8 @@ RAC的一个主要优点是它提供了一种统一的方法来处理异步行�
 
 这是一个简单的例子
 
-```objc
-///当self.username更改时，将新名称记录到控制台
+```
+//当self.username更改时，将新名称记录到控制台
 [RACObserve(self, username) subscribeNext:^(NSString *newName) {
 	NSLog(@"%@", newName);
 }];
@@ -48,7 +48,7 @@ RAC的一个主要优点是它提供了一种统一的方法来处理异步行�
 但与KVO通知不同，信号可以链接在一起并对其进行操作：
 
 ```
-///当记录以“j”开头的名称时才会在控制台打印
+//当记录以“j”开头的名称时才会在控制台打印
 [[RACObserve(self, username)
 	filter:^(NSString *newName) {
 		return [newName hasPrefix:@"j"];
