@@ -1,0 +1,395 @@
+---
+layout:     post
+title:      "ReactiveCocoa学习笔记"
+subtitle:   " \"Exmple for ReactiveCocoa\""
+date:       2018-11-22 12:00:00
+author:     "Wangpt"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - Notes
+    - ReactiveCocoa
+
+---
+
+> “欢迎关注和分享 ”
+
+
+## 简介
+* ReactiveCocoa（简称为RAC）,是由Github开源的一个应用于iOS和OS开发的新框架。RAC结合了函数式编程（Functional Programming）和响应式编程（React Programming）的框架，也可称其为函数响应式编程（FRP）框架 *
+
+
+---
+
+## 开发环境
+
+* [地址](https://github.com/ReactiveCocoa/ReactiveCocoa)
+
+### 知识储备
+
+* [Looking for the Objective-C API?](https://github.com/ReactiveCocoa/ReactiveObjC) 
+
+
+### 1.介绍
+*通过链接，组合和响应信号，可以以声明方式编写软件，而无需持续观察和更新值的代码。*
+
+例如，文本字段可以绑定到最新时间，即使它更改，而不是使用监视时钟的其他代码并每秒更新文本字段。它的工作方式与KVO非常相似，但是使用块而不是-observeValueForKeyPath:ofObject:change:context:。
+
+RAC的一个主要优点是它提供了一种统一的方法来处理异步行为，包括委托方法，回调块，目标操作机制，通知和KVO。
+
+这是一个简单的例子
+
+```objc
+//当self.username更改时，将新名称记录到控制台
+[RACObserve(self, username) subscribeNext:^(NSString *newName) {
+	NSLog(@"%@", newName);
+}];
+```
+
+但与KVO通知不同，信号可以链接在一起并对其进行操作：
+
+```
+///当记录以“j”开头的名称时才会在控制台打印
+[[RACObserve(self, username)
+	filter:^(NSString *newName) {
+		return [newName hasPrefix:@"j"];
+	}]
+	subscribeNext:^(NSString *newName) {
+		NSLog(@"%@", newName);
+	}];
+```
+
+
+信号也可用于修改状态，通过RAC宏定义进行响应变化
+
+```
+//创建一个双向绑定，当password与passwordConfirm发生变化且相同时，createEnabled为true，否则为false
+RAC(self, createEnabled) = [RACSignal
+	combineLatest:@[ RACObserve(self, password), RACObserve(self, passwordConfirmation) ]
+	reduce:^(NSString *password, NSString *passwordConfirm) {
+		return @([passwordConfirm isEqualToString:password]);
+	}];
+```
+
+信号可以建立在任何有价值的流上面，不仅仅是KVO，比如按钮的点击事件
+
+```
+// rac_command是UIButton的补充,如按钮被按下时，进行响应，可添加相应附加的操作
+self.button.rac_command = [[RACCommand alloc] initWithSignalBlock:^(id _) {
+	NSLog(@"button was pressed!");
+	return [RACSignal empty];
+}];
+```
+
+也可以用于网络异步操作
+
+```
+//连接“登录”按钮以通过网络登录
+self.loginCommand = [[RACCommand alloc] initWithSignalBlock:^(id sender) {
+	//网络请求完成
+	return [client logIn];
+}];
+
+//从上面的块返回的信号，每次执行命令时都会返回一个信号
+[self.loginCommand.executionSignals subscribeNext:^(RACSignal *loginSignal) {
+	//每当我们成功登录时都会记录一条消息
+	[loginSignal subscribeCompleted:^{
+		NSLog(@"Logged in successfully!");
+	}];
+}];
+
+//按下按钮时执行登录命令
+self.loginButton.rac_command = self.loginCommand;
+
+```
+
+信号还可以表示计时器，其他UI事件或随时间变化的任何其他事件。
+
+使用信号进行异步操作可以通过链接和转换这些信号来构建更复杂的行为。在一组操作完成后，可以轻松触发工作：
+
+
+```
+//执行2个网络操作，并在完成时将消息记录到控制台
+[[RACSignal
+	merge:@[ [client fetchUserRepos], [client fetchOrgRepos] ]]
+	subscribeCompleted:^{
+		NSLog(@"They're both done!");
+	}];
+```
+
+可以将信号链接到顺序执行异步操作，而不是使用块嵌套回调
+
+```
+//登录用户，然后加载所有缓存的消息，然后从服务器获取最后的消息，最后返回控制台
+[[[[client
+	logInUser]
+	flattenMap:^(User *user) {
+		//返回为用户加载消息的信号
+		return [client loadCachedMessagesForUser:user];
+	}]
+	flattenMap:^(NSArray *messages) {
+		return [client fetchMessagesAfterMessage:messages.lastObject];
+	}]
+	subscribeNext:^(NSArray *newMessages) {
+		NSLog(@"New messages: %@", newMessages);
+	} completed:^{
+		NSLog(@"Fetched all messages.");
+	}];
+```
+
+RAC甚至可以很容易地绑定到异步操作的结果
+
+```
+//创建一个单向绑定，以便self.imageView.image在下载后立即设置为用户的头像
+RAC(self.imageView, image) = [[[[client
+	fetchUserWithUsername:@"joshaber"]
+	deliverOn:[RACScheduler scheduler]]
+	map:^(User *user) {
+		//下载头像在后台队列进行
+		return [[NSImage alloc] initWithContentsOfURL:user.avatarURL];
+	}]
+	//现在，分配将在主线程上完成
+	deliverOn:RACScheduler.mainThreadScheduler];
+```
+
+这展示了RAC可以做的一些事情，但它没有说明为什么RAC如此强大,但它可以编写具有更少状态，更少样板，更好代码局部性和更好表达意图的代码。
+
+有关更多示例代码，请查看[C-41](https://github.com/AshFurrow/C-41)或[GroceryList](https://github.com/jspahrsummers/GroceryList)，它们是使用ReactiveObjC编写的真实iOS应用程序。
+
+### 何时使用
+
+ReactiveObjC非常抽象，很难理解如何将其应用于具体问题。以下是RAC擅长的一些用例
+
+###### 处理异步或事件驱动的数据源
+
+许多Cocoa编程专注于对用户事件或应用程序状态的变化做出反应。处理此类事件的代码很快就会变得非常复杂。
+
+看似表面不同的模式，如UI回调，网络响应和KVO通知，实际上有很多共同之处。RACSignal 统一所有这些不同的API，以便它们可以组合在一起并以相同的方式进行操作。
+
+比如以下代码
+
+```
+static void *ObservationContext = &ObservationContext;
+
+- (void)viewDidLoad {
+	[super viewDidLoad];
+
+	[LoginManager.sharedManager addObserver:self forKeyPath:@"loggingIn" options:NSKeyValueObservingOptionInitial context:&ObservationContext];
+	[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(loggedOut:) name:UserDidLogOutNotification object:LoginManager.sharedManager];
+
+	[self.usernameTextField addTarget:self action:@selector(updateLogInButton) forControlEvents:UIControlEventEditingChanged];
+	[self.passwordTextField addTarget:self action:@selector(updateLogInButton) forControlEvents:UIControlEventEditingChanged];
+	[self.logInButton addTarget:self action:@selector(logInPressed:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)dealloc {
+	[LoginManager.sharedManager removeObserver:self forKeyPath:@"loggingIn" context:ObservationContext];
+	[NSNotificationCenter.defaultCenter removeObserver:self];
+}
+
+- (void)updateLogInButton {
+	BOOL textFieldsNonEmpty = self.usernameTextField.text.length > 0 && self.passwordTextField.text.length > 0;
+	BOOL readyToLogIn = !LoginManager.sharedManager.isLoggingIn && !self.loggedIn;
+	self.logInButton.enabled = textFieldsNonEmpty && readyToLogIn;
+}
+
+- (IBAction)logInPressed:(UIButton *)sender {
+	[[LoginManager sharedManager]
+		logInWithUsername:self.usernameTextField.text
+		password:self.passwordTextField.text
+		success:^{
+			self.loggedIn = YES;
+		} failure:^(NSError *error) {
+			[self presentError:error];
+		}];
+}
+
+- (void)loggedOut:(NSNotification *)notification {
+	self.loggedIn = NO;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	if (context == ObservationContext) {
+		[self updateLogInButton];
+	} else {
+		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+	}
+}
+```
+
+可以在RAC中表达如下
+
+```
+- (void)viewDidLoad {
+	[super viewDidLoad];
+
+	@weakify(self);
+
+	RAC(self.logInButton, enabled) = [RACSignal
+		combineLatest:@[
+			self.usernameTextField.rac_textSignal,
+			self.passwordTextField.rac_textSignal,
+			RACObserve(LoginManager.sharedManager, loggingIn),
+			RACObserve(self, loggedIn)
+		] reduce:^(NSString *username, NSString *password, NSNumber *loggingIn, NSNumber *loggedIn) {
+			return @(username.length > 0 && password.length > 0 && !loggingIn.boolValue && !loggedIn.boolValue);
+		}];
+
+	[[self.logInButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender) {
+		@strongify(self);
+
+		RACSignal *loginSignal = [LoginManager.sharedManager
+			logInWithUsername:self.usernameTextField.text
+			password:self.passwordTextField.text];
+
+			[loginSignal subscribeError:^(NSError *error) {
+				@strongify(self);
+				[self presentError:error];
+			} completed:^{
+				@strongify(self);
+				self.loggedIn = YES;
+			}];
+	}];
+
+	RAC(self, loggedIn) = [[NSNotificationCenter.defaultCenter
+		rac_addObserverForName:UserDidLogOutNotification object:nil]
+		mapReplace:@NO];
+}
+```
+
+###### 链接依赖操作
+
+在网络请求中最常见的是依赖关系，其中先前对服务器的请求需要在构造下一个请求之前完成，依此类推
+
+```
+[client logInWithSuccess:^{
+	[client loadCachedMessagesWithSuccess:^(NSArray *messages) {
+		[client fetchMessagesAfterMessage:messages.lastObject success:^(NSArray *nextMessages) {
+			NSLog(@"Fetched all messages.");
+		} failure:^(NSError *error) {
+			[self presentError:error];
+		}];
+	} failure:^(NSError *error) {
+		[self presentError:error];
+	}];
+} failure:^(NSError *error) {
+	[self presentError:error];
+}];
+```
+
+ReactiveObjC使这种模式变得特别容易：
+
+```
+[[[[client logIn]
+	then:^{
+		return [client loadCachedMessages];
+	}]
+	flattenMap:^(NSArray *messages) {
+		return [client fetchMessagesAfterMessage:messages.lastObject];
+	}]
+	subscribeError:^(NSError *error) {
+		[self presentError:error];
+	} completed:^{
+		NSLog(@"Fetched all messages.");
+	}];
+```
+
+###### 并行化独立工作
+
+并行处理独立数据集然后将它们组合成最终结果在Cocoa中是非常重要的，并且通常涉及大量同步：
+
+```
+__block NSArray *databaseObjects;
+__block NSArray *fileContents;
+
+NSOperationQueue *backgroundQueue = [[NSOperationQueue alloc] init];
+NSBlockOperation *databaseOperation = [NSBlockOperation blockOperationWithBlock:^{
+	databaseObjects = [databaseClient fetchObjectsMatchingPredicate:predicate];
+}];
+
+NSBlockOperation *filesOperation = [NSBlockOperation blockOperationWithBlock:^{
+	NSMutableArray *filesInProgress = [NSMutableArray array];
+	for (NSString *path in files) {
+		[filesInProgress addObject:[NSData dataWithContentsOfFile:path]];
+	}
+
+	fileContents = [filesInProgress copy];
+}];
+
+NSBlockOperation *finishOperation = [NSBlockOperation blockOperationWithBlock:^{
+	[self finishProcessingDatabaseObjects:databaseObjects fileContents:fileContents];
+	NSLog(@"Done processing");
+}];
+
+[finishOperation addDependency:databaseOperation];
+[finishOperation addDependency:filesOperation];
+[backgroundQueue addOperation:databaseOperation];
+[backgroundQueue addOperation:filesOperation];
+[backgroundQueue addOperation:finishOperation];
+```
+
+只需编写信号即可清理和优化上述代码
+
+```
+RACSignal *databaseSignal = [[databaseClient
+	fetchObjectsMatchingPredicate:predicate]
+	subscribeOn:[RACScheduler scheduler]];
+
+RACSignal *fileSignal = [RACSignal startEagerlyWithScheduler:[RACScheduler scheduler] block:^(id<RACSubscriber> subscriber) {
+	NSMutableArray *filesInProgress = [NSMutableArray array];
+	for (NSString *path in files) {
+		[filesInProgress addObject:[NSData dataWithContentsOfFile:path]];
+	}
+
+	[subscriber sendNext:[filesInProgress copy]];
+	[subscriber sendCompleted];
+}];
+
+[[RACSignal
+	combineLatest:@[ databaseSignal, fileSignal ]
+	reduce:^ id (NSArray *databaseObjects, NSArray *fileContents) {
+		[self finishProcessingDatabaseObjects:databaseObjects fileContents:fileContents];
+		return nil;
+	}]
+	subscribeCompleted:^{
+		NSLog(@"Done processing");
+	}];
+```
+
+###### 简化集合转换
+
+高阶功能，如map，filter，fold/ reduce,是函数中非常缺少的，如以下代码
+
+```
+NSMutableArray *results = [NSMutableArray array];
+for (NSString *str in strings) {
+	if (str.length < 2) {
+		continue;
+	}
+
+	NSString *newString = [str stringByAppendingString:@"foobar"];
+	[results addObject:newString];
+}
+```
+
+RACSequence允许以统一和声明的方式操作任何Cocoa集合：
+
+```
+RACSequence *results = [[strings.rac_sequence
+	filter:^ BOOL (NSString *str) {
+		return str.length >= 2;
+	}]
+	map:^(NSString *str) {
+		return [str stringByAppendingString:@"foobar"];
+	}];
+```
+
+### 系统要求
+*ReactiveObjC支持OS X 10.8+和iOS 8.0+*
+
+
+
+
+## 后记
+
+此文档会不断更新
